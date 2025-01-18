@@ -19,7 +19,7 @@ class CustomAppbarAllScreens extends StatelessWidget {
       toolbarHeight: 90.h,
       actions: [
         IconButton(onPressed: (){
-          context.go(Routes.mainLayOutRoute);
+          context.go(Routes.mainLayoutRoute);
           }, icon: const Icon(Icons.arrow_forward , color: ColorManager.white,))
       ],
       shape: RoundedRectangleBorder(

@@ -1,19 +1,19 @@
 class Routes {
+//General-Routs
   static const String splashRoute = '/SplashScreen';
-  static const String mainLayOutRoute = '/MainLayOut';
   static const String onboardingRoute = '/OnboardingScreen';
+  static const String mainLayoutRoute = '/MainLayout';
   static const String loginRoute = '/LoginScreen';
-  static const String resultRoute = '/result';
   static const String registerRoute = '/register';
-  static const String profileRoute = '/profile';
-  static const String homeScreenRoute = '/homeScreen';
-  static const String settingsRoute = '/settings';
-  static const String seatNumberScreenRoute = '/seatNumberScreen';
-  static const String examScheduleScreenRoute = '/examScheduleScreen';
-  static const String lectureScheduleScreenRoute = '/lectureScheduleScreen';
-  static const String emailDetailsScreenRoute = '/emailDetailsScreen';
-  static const String lastNewsPage = '/lastNewsPage';
-  static const String newsDetails = '/newsDetails';
-  static const String changePassword = '/changePassword';
-  static const String notification = '/notification';
+  static const String homeRoute = '/home';
+  static const String favoriteRoute = '/favorite';
+  static const String myBookingsRoute = '/myBookings';
+  static const String addNewRentRoute = '/addNewRent';
+//client-Routs
+  static const String client_profileRoute = '/Client_profile';
+//Admin-Routs
+  static const String Admin_profileRoute = '/Admin_profile';
+  static const String Admin_controlRoute = '/Admin_settings';
+  static const String Users_ControlRoute = '/Users_Control';
+  static const String Ads_ControlRoute = '/Ads_Control';
 }
