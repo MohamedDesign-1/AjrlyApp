@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'config/routes/route_manger.dart';
 
-void main(){
+void main() {
   runApp(AjrlyApp());
 }
 

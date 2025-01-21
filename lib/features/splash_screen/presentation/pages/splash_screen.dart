@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   // This function navigates to the next screen after checking the token
   void _navigateToNextScreen() async {
     await Future.delayed(const Duration(seconds: 3));
-    context.go(Routes.onboardingRoute);
+    context.go(Routes.mainLayoutRoute);
   }
 
   @override
