@@ -4,10 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'font_manager.dart';
 
 TextStyle getTextStyle(double fontSize, FontWeight fontWeight, Color color ) {
-  return GoogleFonts.alexandria(
+  return GoogleFonts.tajawal(
     fontSize: fontSize,
     fontWeight: fontWeight,
-
     color: color,
   );
 }

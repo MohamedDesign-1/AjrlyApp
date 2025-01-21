@@ -1,12 +1,17 @@
 import 'package:ajrly/features/Home_Page/presentation/homepage.dart';
+import 'package:ajrly/features/booking/presentation/pages/booking_screen.dart';
 import 'package:ajrly/features/favourite/presentation/pages/favourite.dart';
 import 'package:ajrly/features/profile/presentation/pages/profile_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
+
+import '../../add_ad/presentation/pages/add_ad_screen.dart';
 
 part 'main_layout_state.dart';
 
+@injectable
 class MainLayoutCubit extends Cubit<MainLayoutState> {
   MainLayoutCubit() : super(MainLayoutInitial()) {
     loadInitialData();
@@ -16,8 +21,10 @@ class MainLayoutCubit extends Cubit<MainLayoutState> {
 
   final List<Widget> screens = [
     Homepage(),
+    BookingScreen(),
+    AddAdScreen(),
     Favourite(),
-    ProfileScreen()
+    ProfileScreen(),
   ];
 
   void loadInitialData() {

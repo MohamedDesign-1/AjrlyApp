@@ -12,69 +12,94 @@ class MainLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mainLayoutCubit = context.read<MainLayoutCubit>();
+    return BlocBuilder<MainLayoutCubit, MainLayoutState>(
+      builder: (context, state) {
+        final mainLayoutCubit = context.read<MainLayoutCubit>();
+        return Scaffold(
+          appBar: (mainLayoutCubit.currentIndex == 0 )
+              ? AppBar(
+            title: Text(
+              'مرحبا بك ^_^ ',
+              style: getBoldStyle(color: ColorManager.white, fontSize: 18.sp),
+            ),
+            backgroundColor: ColorManager.primary,
+            toolbarHeight: 90.h,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(16.r),
+              ),
+            ),
+          )
+              : null,
+          body: state is MainLayoutLoaded
+              ? state.screens[mainLayoutCubit.currentIndex]
+              : const Center(child: CircularProgressIndicator()),
+          bottomNavigationBar: BottomNavigationBar(
+            selectedLabelStyle: getBoldStyle(color: ColorManager.white, fontSize: 12.sp),
+            unselectedLabelStyle: getBoldStyle(color: ColorManager.white, fontSize: 12.sp),
+            currentIndex: mainLayoutCubit.currentIndex,
 
-    return Scaffold(
-      appBar: (mainLayoutCubit.currentIndex == 1)
-          ? AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'مرحباً',
-                  style: getMediumStyle(
-                    color: ColorManager.white,
-                    fontSize: 16.sp,
-                  ),
+            onTap: mainLayoutCubit.changeIndex,
+            items: [
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(SvgAssets.home , height: 24.h , width: 24.w,),
                 ),
-                SizedBox(height: 4.h),
-                Text(
-                  'studentName',
-                  style: getMediumStyle(
-                    color: ColorManager.white,
-                    fontSize: 16.sp,
-                  ),
+                label: 'الرئيسية',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(SvgAssets.booking , height: 24.h , width: 24.w,),
                 ),
-              ],
+                label: 'حجوزاتي',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(SvgAssets.fav , height: 24.h , width: 24.w,),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(SvgAssets.fav , height: 24.h , width: 24.w,),
+                ),
+                label: 'مفضلاتي',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(SvgAssets.user , height: 24.h , width: 24.w,),
+                ),
+                label: 'البروفايل',
+              ),
+            ],
+            selectedItemColor: ColorManager.white,
+            unselectedItemColor: ColorManager.gray,
+            showUnselectedLabels: true,
+            backgroundColor: ColorManager.primary,
+            elevation: 0,
+            type: BottomNavigationBarType.fixed,
+          ),
+          floatingActionButton: Container(
+            margin: EdgeInsets.only(bottom: 10.h , top: 50.h),
+            child: SizedBox(
+              height: 70.h,
+              width: 70.w,
+              child: FittedBox(
+                child: FloatingActionButton(
+                backgroundColor: ColorManager.white,
+                foregroundColor: ColorManager.primary,
+                elevation: 0,
+                shape: CircleBorder(side: BorderSide(color: ColorManager.primary , width: 4.w , strokeAlign: BorderSide.strokeAlignOutside)),
+                onPressed: (){} , child: Icon(Icons.add),
+                ),
+              ),
             ),
-            SvgPicture.asset(
-              ImageAssets.logo,
-              width: 50.w,
-              height: 50.h,
-            ),
-          ],
-        ),
-        backgroundColor: ColorManager.primary,
-        toolbarHeight: 90.h,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(16.r),
           ),
-        ),
-      )
-          : null,
-      body: mainLayoutCubit.screens[mainLayoutCubit.currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: mainLayoutCubit.currentIndex,
-        onTap: mainLayoutCubit.changeIndex,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'الإعدادات',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'الرئيسية',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'الملف الشخصي',
-          ),
-        ],
-      ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        );
+      },
     );
   }
 }
