@@ -58,6 +58,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         buttomnradius: 8,
         buttomntitle: 'ابدأ الأن',
         buttomnwidth: 312,
+        showicon: true,
+        iconasset: SvgAssets.start,
       ),
     ];
   }

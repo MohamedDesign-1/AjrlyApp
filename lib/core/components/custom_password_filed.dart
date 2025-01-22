@@ -41,7 +41,7 @@ class _CustomPasswordFiledState extends State<CustomPasswordFiled> {
       keyboardType: widget.keyboardType,
       controller: widget.controller,
       decoration: InputDecoration(
-        suffixIcon: widget.prefixIcon,
+        suffixIcon: widget.suffixIcon,
         hintStyle: getMediumStyle(
             color: ColorManager.secondaryPrimary.withValues(alpha: 0.4),
             fontSize: 14.sp),

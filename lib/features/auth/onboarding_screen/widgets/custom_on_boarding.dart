@@ -2,8 +2,9 @@ import 'package:ajrly/core/utils/styles_manager.dart';
 import 'package:ajrly/features/auth/onboarding_screen/widgets/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/utils/assets_manager.dart';
 import '../../../../core/utils/color_mananger.dart';
-import 'custom_buttomn.dart';
+import '../../../../core/components/custom_buttomn.dart';
 
 class CustomOnBoarding extends StatelessWidget {
   final String imageAssets;
@@ -12,6 +13,7 @@ class CustomOnBoarding extends StatelessWidget {
   final PageController controller;
   final bool? showSmoothPageIndicator;
   final bool? showbuttomnIndicator;
+  final bool? showicon;
   final Function()? onTap;
   final String? buttomntitle;
   final Color? buttomncolor;
@@ -20,6 +22,7 @@ class CustomOnBoarding extends StatelessWidget {
   final double? buttomnheight;
   final double? buttomnradius;
   final Color? buttomnfontcolor;
+  final String? iconasset;
 
   const CustomOnBoarding({
     super.key,
@@ -37,6 +40,8 @@ class CustomOnBoarding extends StatelessWidget {
     this.buttomnheight,
     this.buttomnradius,
     this.buttomnfontcolor,
+    this.showicon,
+    this.iconasset,
   });
 
   @override
@@ -86,6 +91,7 @@ class CustomOnBoarding extends StatelessWidget {
                 Spacer(flex: 1,),
                 if (showbuttomnIndicator ?? false)
                   CustomButton(
+                    showicon:showicon,
                     onTap: onTap ?? () {},
                     title: buttomntitle ?? '',
                     color: buttomncolor ?? ColorManager.white,
@@ -94,6 +100,7 @@ class CustomOnBoarding extends StatelessWidget {
                     height: buttomnheight ?? 50,
                     radius: buttomnradius ?? 0,
                     fontcolor: buttomnfontcolor ?? ColorManager.primary,
+                    iconasset: iconasset,
                   ),
                 Spacer(flex: 2),
               ],
