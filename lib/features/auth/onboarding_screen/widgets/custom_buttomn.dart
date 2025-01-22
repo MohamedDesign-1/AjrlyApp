@@ -49,9 +49,9 @@ class CustomButton extends StatelessWidget {
                 title,
                 style: getTextStyle(16, FontWeight.bold, fontcolor),
               ),
-              SizedBox(width: 8.w), // Add spacing between the text and the SVG
+              SizedBox(width: 8.w),
               SvgPicture.asset(
-                SvgAssets.start, // Replace with your actual SVG path
+                SvgAssets.start,
                 height: 24.h,
                 width: 24.w,
               ),

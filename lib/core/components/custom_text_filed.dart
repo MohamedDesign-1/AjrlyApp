@@ -43,6 +43,7 @@ class CustomTextFiled extends StatelessWidget {
         hintStyle: getMediumStyle(
             color: ColorManager.secondaryPrimary.withOpacity(0.4),
             fontSize: 14.sp),
+        hintTextDirection: TextDirection.rtl,
         border: OutlineInputBorder(
           borderRadius: borderRadius,
         ),

@@ -19,6 +19,8 @@ abstract class IconAssets {
 abstract class SvgAssets {
   static const String aPlus = '${svgPath}APlus.svg';
   static const String start = '${svgPath}start.svg';
+  static const String email = '${svgPath}email.svg';
+  static const String lock = '${svgPath}Lock.svg';
 }
 
 abstract class JsonAssets {

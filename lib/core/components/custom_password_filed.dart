@@ -8,6 +8,7 @@ class CustomPasswordFiled extends StatefulWidget {
   final String? hintText;
   bool obscureText;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
@@ -24,6 +25,7 @@ class CustomPasswordFiled extends StatefulWidget {
     this.textInputAction,
     this.validator,
     this.controller,
+    this.suffixIcon,
   });
 
   @override
@@ -39,11 +41,11 @@ class _CustomPasswordFiledState extends State<CustomPasswordFiled> {
       keyboardType: widget.keyboardType,
       controller: widget.controller,
       decoration: InputDecoration(
-        prefixIcon: widget.prefixIcon,
+        suffixIcon: widget.prefixIcon,
         hintStyle: getMediumStyle(
             color: ColorManager.secondaryPrimary.withValues(alpha: 0.4),
             fontSize: 14.sp),
-        suffixIcon: IconButton(
+        prefixIcon: IconButton(
             onPressed: () {
               setState(() {
                 widget.obscureText = !widget.obscureText;
@@ -61,6 +63,7 @@ class _CustomPasswordFiledState extends State<CustomPasswordFiled> {
         filled: true,
         fillColor: ColorManager.lightGrey.withValues(alpha: 0.5),
         hintText: widget.hintText,
+        hintTextDirection: TextDirection.rtl,
         border: OutlineInputBorder(
           borderRadius: widget.borderRadius,
         ),
