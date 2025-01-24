@@ -47,7 +47,7 @@ class RegsiterScreen extends StatelessWidget {
                       color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 CustomTextFiled(
                   hintText: 'ادخل اسمك بالكامل',
                   borderRadius: BorderRadius.circular(4),
@@ -68,7 +68,7 @@ class RegsiterScreen extends StatelessWidget {
                       color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 CustomTextFiled(
                   hintText: 'ادخل البريد الالكتروني',
                   borderRadius: BorderRadius.circular(4),
@@ -89,7 +89,7 @@ class RegsiterScreen extends StatelessWidget {
                       color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 CustomTextFiled(
                   hintText: 'ادخل رقم الموبيل',
                   borderRadius: BorderRadius.circular(4),
@@ -110,7 +110,7 @@ class RegsiterScreen extends StatelessWidget {
                       color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 CustomTextFiled(
                   hintText: 'ادخل الرقم القومي المكون من 14 رقم',
                   borderRadius: BorderRadius.circular(4),
@@ -131,7 +131,7 @@ class RegsiterScreen extends StatelessWidget {
                       color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 CustomTextFiled(
                   hintText: 'ادخل تاريخ ميلادك',
                   borderRadius: BorderRadius.circular(4),
@@ -152,7 +152,7 @@ class RegsiterScreen extends StatelessWidget {
                       color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 CustomPasswordFiled(
                   hintText: 'ادخل كلمة المرور',
                   borderRadius: BorderRadius.circular(4),
@@ -165,7 +165,7 @@ class RegsiterScreen extends StatelessWidget {
                       color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 CustomPasswordFiled(
                   hintText: 'تأكيد كلمة المرور',
                   borderRadius: BorderRadius.circular(4),
