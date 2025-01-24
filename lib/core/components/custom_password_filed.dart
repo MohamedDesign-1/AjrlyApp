@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../utils/assets_manager.dart';
 import '../utils/color_mananger.dart';
 import '../utils/styles_manager.dart';
 
@@ -41,10 +43,17 @@ class _CustomPasswordFiledState extends State<CustomPasswordFiled> {
       keyboardType: widget.keyboardType,
       controller: widget.controller,
       decoration: InputDecoration(
-        suffixIcon: widget.suffixIcon,
-        suffixIconConstraints: BoxConstraints(maxWidth: 30, maxHeight: 30),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SvgPicture.asset(
+            SvgAssets.lock,
+            height: 24.h,
+            width: 24.w,
+          ),
+        ),
+        suffixIconConstraints: BoxConstraints(maxWidth: 50, maxHeight: 50),
         hintStyle: getMediumStyle(
-            color: ColorManager.secondaryPrimary.withValues(alpha: 0.4),
+            color: ColorManager.gray.withValues(alpha: 1),
             fontSize: 14.sp),
         prefixIcon: IconButton(
             onPressed: () {

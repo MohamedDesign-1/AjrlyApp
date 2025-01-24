@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../config/routes/routes.dart';
 import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/color_mananger.dart';
-import '../../widgets/custom_on_boarding.dart';
+import '../widgets/custom_on_boarding.dart';
 
 
 class OnboardingScreen extends StatefulWidget {
@@ -53,11 +53,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         onTap: () {context.go(Routes.loginRoute);},
         buttomncolor: ColorManager.white,
         buttomnfontcolor: ColorManager.primary,
-        buttomnheight: 48,
+        buttomnheight: 56,
         buttomnoutlineColor: ColorManager.primary,
         buttomnradius: 8,
         buttomntitle: 'ابدأ الأن',
-        buttomnwidth: 312,
+        buttomnwidth: double.infinity,
         showicon: true,
         iconasset: SvgAssets.start,
       ),

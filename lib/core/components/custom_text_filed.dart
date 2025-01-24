@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import '../utils/assets_manager.dart';
 import '../utils/color_mananger.dart';
 import '../utils/styles_manager.dart';
 
@@ -36,13 +38,20 @@ class CustomTextFiled extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-        suffixIconConstraints: BoxConstraints(maxWidth: 30,maxHeight: 30),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SvgPicture.asset(
+            SvgAssets.email,
+            height: 24.h,
+            width: 24.w,
+          ),
+        ),
+        suffixIconConstraints: BoxConstraints(maxWidth: 50,maxHeight: 50),
         filled: true,
         fillColor: ColorManager.lightGrey.withOpacity(0.5),
         hintText: hintText,
         hintStyle: getMediumStyle(
-            color: ColorManager.secondaryPrimary.withOpacity(0.4),
+            color: ColorManager.gray.withValues(alpha: 1),
             fontSize: 14.sp),
         hintTextDirection: TextDirection.rtl,
         border: OutlineInputBorder(

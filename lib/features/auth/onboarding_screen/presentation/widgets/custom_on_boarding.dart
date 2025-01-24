@@ -1,10 +1,10 @@
 import 'package:ajrly/core/utils/styles_manager.dart';
-import 'package:ajrly/features/auth/onboarding_screen/widgets/smooth_page_indicator.dart';
+import 'package:ajrly/features/auth/onboarding_screen/presentation/widgets/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/utils/assets_manager.dart';
-import '../../../../core/utils/color_mananger.dart';
-import '../../../../core/components/custom_buttomn.dart';
+
+import '../../../../../core/components/custom_buttomn.dart';
+import '../../../../../core/utils/color_mananger.dart';
 
 class CustomOnBoarding extends StatelessWidget {
   final String imageAssets;
@@ -76,6 +76,7 @@ class CustomOnBoarding extends StatelessWidget {
                     maintitle,
                     style: getTextStyle(30, FontWeight.bold, ColorManager.white),
                     textDirection: TextDirection.rtl,
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 Padding(
@@ -90,17 +91,20 @@ class CustomOnBoarding extends StatelessWidget {
                 ),
                 Spacer(flex: 1,),
                 if (showbuttomnIndicator ?? false)
-                  CustomButton(
-                    showicon:showicon,
-                    onTap: onTap ?? () {},
-                    title: buttomntitle ?? '',
-                    color: buttomncolor ?? ColorManager.white,
-                    outlineColor: buttomnoutlineColor ?? ColorManager.primary,
-                    width: buttomnwidth ?? 100,
-                    height: buttomnheight ?? 50,
-                    radius: buttomnradius ?? 0,
-                    fontcolor: buttomnfontcolor ?? ColorManager.primary,
-                    iconasset: iconasset,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomButton(
+                      showicon:showicon,
+                      onTap: onTap ?? () {},
+                      title: buttomntitle ?? '',
+                      color: buttomncolor ?? ColorManager.white,
+                      outlineColor: buttomnoutlineColor ?? ColorManager.primary,
+                      width: buttomnwidth ?? 100,
+                      height: buttomnheight ?? 50,
+                      radius: buttomnradius ?? 0,
+                      fontcolor: buttomnfontcolor ?? ColorManager.primary,
+                      iconasset: iconasset,
+                    ),
                   ),
                 Spacer(flex: 2),
               ],
@@ -110,8 +114,8 @@ class CustomOnBoarding extends StatelessWidget {
         if (showSmoothPageIndicator??false)
           Positioned(
             bottom: 15.h,
-            left: 140,
-            right: 140,
+            left: 140.w,
+            right: 140.w,
             child: CustomSmoothPageIndicator(
               controller: controller,
               count: 3,

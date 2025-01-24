@@ -1,5 +1,6 @@
 import 'package:ajrly/core/components/custom_password_filed.dart';
 import 'package:ajrly/core/components/custom_text_filed.dart';
+import 'package:ajrly/core/components/validators.dart';
 import 'package:ajrly/core/utils/assets_manager.dart';
 import 'package:ajrly/core/utils/color_mananger.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
@@ -13,125 +14,13 @@ import '../../../../../core/components/custom_buttomn.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    List<Widget> screenwidgets = [
-      Spacer(),
-      Center(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-          child: Text(
-            'تسجيل الدخول',
-            style: getTextStyle(32, FontWeight.bold, ColorManager.primary),
-          ),
-        ),
-      ),
-      Spacer(),
-      Center(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-          child: Text('يرجى إدخال البيانات التالية لتسجيل الدخول',
-              style: getTextStyle(24, FontWeight.w300, ColorManager.primary),
-              textAlign: TextAlign.center),
-        ),
-      ),
-      Spacer(),
-      SizedBox(
-        height: 216.h,
-        width: 328.w,
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                'البريد الإلكتروني',
-                style: getTextStyle(16, FontWeight.w400, ColorManager.primary),
-                textDirection: TextDirection.rtl,
-              ),
-            ),
-            Spacer(),
-            CustomTextFiled(
-              hintText: '   ادخــل الــبريـد الالــكــتروني',
-              borderRadius: BorderRadius.circular(4),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                child: SvgPicture.asset(
-                  SvgAssets.email,
-                  height: 24.h,
-                  width: 24.w,
-                ),
-              ),
-            ),
-            Spacer(),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                'كـــلمة الـــمرور',
-                style: getTextStyle(16, FontWeight.w400, ColorManager.primary),
-                textDirection: TextDirection.rtl,
-              ),
-            ),
-            Spacer(),
-            CustomPasswordFiled(
-              hintText: '   ادخــل كـــلمة الـــمرور',
-              borderRadius: BorderRadius.circular(4),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                child: SvgPicture.asset(
-                  SvgAssets.lock,
-                  height: 24.h,
-                  width: 24.w,
-                ),
-              ),
-            ),
-            Spacer(),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: Row(
-                children: [
-                  Text(
-                    'ليس لديك حساب ؟ ',
-                    style:
-                        getTextStyle(14, FontWeight.w400, ColorManager.black),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      context.go(Routes.registerRoute);
-                    },
-                    child: Text(
-                      'انشاء حساب جديد ',
-                      style: getTextStyle(
-                          14, FontWeight.bold, ColorManager.primary),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
-        child: CustomButton(
-            onTap: () {
-              context.go(Routes.mainLayOutRoute);
-            },
-            title: 'تسجيل الدخول',
-            color: ColorManager.primary,
-            outlineColor: ColorManager.white,
-            width: 328.w,
-            height: 56.h,
-            radius: 4,
-            fontcolor: ColorManager.white),
-      ),
-      Spacer(
-        flex: 8,
-      )
-    ];
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 223,
-        shape: RoundedRectangleBorder(
+        toolbarHeight: 223.h,
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(16),
           ),
@@ -147,12 +36,91 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: ListView.builder(
-          itemCount: screenwidgets.length,
-          itemBuilder: (BuildContext context, int index) {
-            return screenwidgets[index];
-          },
+        padding: EdgeInsets.all(16.0.w),
+        child: SingleChildScrollView(
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(height: 24.h),
+                Center(
+                  child: Text(
+                    'تسجيل الدخول',
+                    style: getBoldStyle(color: ColorManager.primary, fontSize: 24.sp),
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'يرجى إدخال البيانات التالية لتسجيل الدخول',
+                  style: getMediumStyle(color: ColorManager.primary, fontSize: 20.sp),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 32.h),
+                Text(
+                  'البريد الإلكتروني',
+                  style: getBoldStyle(color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 10.h),
+                CustomTextFiled(
+                  hintText: '   ادخــل الــبريـد الالــكــتروني',
+                  borderRadius: BorderRadius.circular(4),
+                  validator: AppValidators.validateEmail,
+                ),
+                SizedBox(height: 20.h),
+
+                /// Password Input
+                Text(
+                  'كـــلمة الـــمرور',
+                  style: getBoldStyle(color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 10.h),
+                CustomPasswordFiled(
+                  hintText: '   ادخــل كـــلمة الـــمرور',
+                  borderRadius: BorderRadius.circular(4),
+                  validator: AppValidators.validatePassword,
+                ),
+                SizedBox(height: 20.h),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Row(
+                    children: [
+                      Text(
+                        'ليس لديك حساب ؟ ',
+                        style:
+                        getTextStyle(14, FontWeight.w400, ColorManager.black),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          context.go(Routes.registerRoute);
+                        },
+                        child: Text(
+                          'انشاء حساب جديد ',
+                          style: getTextStyle(
+                              14, FontWeight.bold, ColorManager.primary),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 30.h),
+                CustomButton(
+                  onTap: () {
+                    context.go(Routes.mainLayOutRoute);
+                  },
+                  title: 'تسجيل الدخول',
+                  color: ColorManager.primary,
+                  outlineColor: ColorManager.white,
+                  width: 328.w,
+                  height: 48.h,
+                  radius: 4,
+                  fontcolor: ColorManager.white,
+                ),
+                SizedBox(height: 50.h),
+              ],
+            ),
+          ),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'config/routes/route_manger.dart';
 
@@ -21,6 +22,7 @@ class AjrlyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           routerConfig: getRouter,
         );
+
       },
     );
   }

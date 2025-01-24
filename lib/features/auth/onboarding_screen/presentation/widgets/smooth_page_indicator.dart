@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/color_mananger.dart';
+
+import '../../../../../core/utils/color_mananger.dart';
 
 class CustomSmoothPageIndicator extends StatelessWidget {
   final PageController controller;
