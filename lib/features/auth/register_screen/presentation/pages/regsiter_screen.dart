@@ -2,100 +2,193 @@ import 'package:ajrly/core/components/custom_buttomn.dart';
 import 'package:ajrly/core/utils/assets_manager.dart';
 import 'package:ajrly/core/utils/color_mananger.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
-import 'package:ajrly/features/auth/register_screen/widgets/custom_registration_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../config/routes/routes.dart';
-import '../../widgets/custom_registeration_password_field.dart';
+import '../../../../../core/components/custom_password_filed.dart';
+import '../../../../../core/components/custom_text_filed.dart';
+import '../../../../../core/components/validators.dart';
 
 class RegsiterScreen extends StatelessWidget {
   const RegsiterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> screenwidgets = [
-      Text(
-        'ابدأ رحلتك الآن!',
-        style: getTextStyle(32, FontWeight.bold, ColorManager.primary),
-        textDirection: TextDirection.rtl,
-        textAlign: TextAlign.center,
-      ),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-        child: Text(
-          'قم بتسجيل حساب جديد لاستئجار أو مشاركة المركبات بسهولة وأمان',
-          style: getTextStyle(20, FontWeight.normal, ColorManager.primary),
-          textDirection: TextDirection.rtl,
-          textAlign: TextAlign.center,
-        ),
-      ),
-      CustomRegisterScreenTextFied(
-          titletext: 'الاسم بالكامل',
-          boxtext: '   ادخــل اسمك بالكامل',
-          iconasset: SvgAssets.user),
-      CustomRegisterScreenTextFied(
-          titletext: 'البريد الإلكتروني',
-          boxtext: '   ادخــل الــبريـد الالــكــتروني',
-          iconasset: SvgAssets.email),
-      CustomRegisterScreenTextFied(
-          titletext: 'رقم الموبيل',
-          boxtext: '   ادخــل رقم الموبيل',
-          iconasset: SvgAssets.phone),
-      CustomRegisterScreenTextFied(
-          titletext: 'رقم بطاقة الرقم القومي',
-          boxtext: '   ادخل الرقم القومي المكون من 14 رقم',
-          iconasset: SvgAssets.driverlisence),
-      CustomRegisterScreenTextFied(
-          titletext: 'تاريخ ميلادك',
-          boxtext: '   ادخل تاريخ ميلادك',
-          iconasset: SvgAssets.calender),
-      CustomRegistrationPasswordField(
-          titletext: 'كـلمـة الـمـرور',
-          boxtext: '   ادخــل كـــلمة الـــمرور',
-          iconasset: SvgAssets.registrationlock),
-      CustomRegistrationPasswordField(
-          titletext: 'تأكيد كـلمـة الـمـرور',
-          boxtext: '   تأكيد كـــلمة الـــمرور',
-          iconasset: SvgAssets.registrationlock),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 30),
-        child: CustomButton(
-            onTap: () {
-              context.go(Routes.mainLayOutRoute);
-            },
-            title: 'تسجيل حساب جديد',
-            color: ColorManager.primary,
-            outlineColor: ColorManager.white,
-            width: 328.w,
-            height: 56.h,
-            radius: 4,
-            fontcolor: ColorManager.white),
-      )
-    ];
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: AppBar(
-            title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-              child: IconButton(
-                icon: Icon(Icons.arrow_back_ios),
-                color: ColorManager.primary,
-                onPressed: () {
-                  context.go(Routes.loginRoute);
-                },
-              ),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(16.w),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'ابدأ رحلتك الآن!',
+                  style: getTextStyle(32, FontWeight.bold, ColorManager.primary),
+                  textDirection: TextDirection.rtl,
+                  textAlign: TextAlign.center,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                  child: Text(
+                    'قم بتسجيل حساب جديد لاستئجار أو مشاركة المركبات بسهولة وأمان',
+                    style:
+                    getTextStyle(20, FontWeight.normal, ColorManager.primary),
+                    textDirection: TextDirection.rtl,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'الاسم بالكامل',
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 8.h),
+                CustomTextFiled(
+                  hintText: 'ادخل اسمك بالكامل',
+                  borderRadius: BorderRadius.circular(4),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(
+                      SvgAssets.user,
+                      height: 24.h,
+                      width: 24.w,
+                    ),
+                  ),
+                  validator: AppValidators.validateName,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'البريد الالكتروني',
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 8.h),
+                CustomTextFiled(
+                  hintText: 'ادخل البريد الالكتروني',
+                  borderRadius: BorderRadius.circular(4),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(
+                      SvgAssets.email,
+                      height: 24.h,
+                      width: 24.w,
+                    ),
+                  ),
+                  validator: AppValidators.validateEmail,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'رقم الموبيل',
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 8.h),
+                CustomTextFiled(
+                  hintText: 'ادخل رقم الموبيل',
+                  borderRadius: BorderRadius.circular(4),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(
+                      SvgAssets.phone,
+                      height: 24.h,
+                      width: 24.w,
+                    ),
+                  ),
+                  validator: AppValidators.validatePhoneNumber,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'رقم البطاقة',
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 8.h),
+                CustomTextFiled(
+                  hintText: 'ادخل الرقم القومي المكون من 14 رقم',
+                  borderRadius: BorderRadius.circular(4),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(
+                      SvgAssets.driverlisence,
+                      height: 24.h,
+                      width: 24.w,
+                    ),
+                  ),
+                  validator: AppValidators.validateNationalID,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'تاريخ الميلاد',
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 8.h),
+                CustomTextFiled(
+                  hintText: 'ادخل تاريخ ميلادك',
+                  borderRadius: BorderRadius.circular(4),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(
+                      SvgAssets.calender,
+                      height: 24.h,
+                      width: 24.w,
+                    ),
+                  ),
+                  validator: AppValidators.validateDateOfBirth,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'كلمة المرور',
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 8.h),
+                CustomPasswordFiled(
+                  hintText: 'ادخل كلمة المرور',
+                  borderRadius: BorderRadius.circular(4),
+                  validator: AppValidators.validatePassword,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'تأكيد كلمة المرور',
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 16.sp),
+                  textDirection: TextDirection.rtl,
+                ),
+                SizedBox(height: 8.h),
+                CustomPasswordFiled(
+                  hintText: 'تأكيد كلمة المرور',
+                  borderRadius: BorderRadius.circular(4),
+                  validator: AppValidators.validatePassword,
+                ),
+                SizedBox(height: 16.h),
+                  CustomButton(
+                      onTap: () {
+                        context.go(Routes.mainLayOutRoute);
+                      },
+                      title: 'تسجيل حساب جديد',
+                      color: ColorManager.primary,
+                      outlineColor: ColorManager.white,
+                      width: double.infinity,
+                      height: 48.h,
+                      radius: 4,
+                      fontcolor: ColorManager.white
+                  ),
+              ],
             ),
-          )),
-      body: ListView.builder(
-        itemCount: screenwidgets.length,
-        itemBuilder: (BuildContext context, int index) {
-          return screenwidgets[index];
-        },
+          ),
+        ),
       ),
     );
   }
 }
-
-class CustomRegisterScreenPasswordFied {}

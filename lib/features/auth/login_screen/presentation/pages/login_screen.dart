@@ -58,30 +58,38 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 32.h),
                 Text(
                   'البريد الإلكتروني',
-                  style: getBoldStyle(color: ColorManager.primary, fontSize: 16.sp),
+                  style: getSemiBoldStyle(color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 16.h),
                 CustomTextFiled(
                   hintText: '   ادخــل الــبريـد الالــكــتروني',
                   borderRadius: BorderRadius.circular(4),
+                  suffixIcon: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SvgPicture.asset(
+                      SvgAssets.email,
+                      height: 24.h,
+                      width: 24.w,
+                    ),
+                  ),
                   validator: AppValidators.validateEmail,
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 24.h),
 
                 /// Password Input
                 Text(
-                  'كـــلمة الـــمرور',
-                  style: getBoldStyle(color: ColorManager.primary, fontSize: 16.sp),
+                  'كلمة المرور',
+                  style: getSemiBoldStyle(color: ColorManager.primary, fontSize: 16.sp),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 16.h),
                 CustomPasswordFiled(
                   hintText: '   ادخــل كـــلمة الـــمرور',
                   borderRadius: BorderRadius.circular(4),
                   validator: AppValidators.validatePassword,
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 24.h),
                 Directionality(
                   textDirection: TextDirection.rtl,
                   child: Row(
@@ -104,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 32.h),
                 CustomButton(
                   onTap: () {
                     context.go(Routes.mainLayOutRoute);

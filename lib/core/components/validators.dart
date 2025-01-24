@@ -66,4 +66,46 @@ class AppValidators {
 
     return null;
   }
+
+  // Validate National ID
+  static String? validateNationalID(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter your National ID';
+    }
+
+    if (value.length != 14) {
+      return 'National ID must be 14 digits';
+    }
+
+    RegExp nationalIDRegex = RegExp(r'^[0-9]{14}$');
+    if (!nationalIDRegex.hasMatch(value)) {
+      return 'Please enter a valid National ID';
+    }
+
+    return null;
+  }
+
+  // Validate Date of Birth
+  static String? validateDateOfBirth(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter your date of birth';
+    }
+
+    RegExp dateOfBirthRegex = RegExp(r'^\d{4}-\d{2}-\d{2}$'); // YYYY-MM-DD
+    if (!dateOfBirthRegex.hasMatch(value)) {
+      return 'Please enter a valid date of birth (YYYY-MM-DD)';
+    }
+
+    try {
+      DateTime dob = DateTime.parse(value);
+      DateTime now = DateTime.now();
+      if (dob.isAfter(now)) {
+        return 'Date of birth cannot be in the future';
+      }
+    } catch (e) {
+      return 'Please enter a valid date';
+    }
+
+    return null;
+  }
 }

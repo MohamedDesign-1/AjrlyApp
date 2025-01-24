@@ -38,14 +38,7 @@ class CustomTextFiled extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
-        suffixIcon: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SvgPicture.asset(
-            SvgAssets.email,
-            height: 24.h,
-            width: 24.w,
-          ),
-        ),
+        suffixIcon: suffixIcon,
         suffixIconConstraints: BoxConstraints(maxWidth: 50,maxHeight: 50),
         filled: true,
         fillColor: ColorManager.lightGrey.withOpacity(0.5),
