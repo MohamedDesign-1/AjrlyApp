@@ -64,14 +64,14 @@ class _CustomPasswordFiledState extends State<CustomPasswordFiled> {
             icon: widget.obscureText
                 ? Icon(
                     Icons.visibility_off,
-                    color: ColorManager.secondaryPrimary.withValues(alpha: 0.3),
+                    color: ColorManager.lightGrey.withValues(alpha: 1),
                   )
                 : const Icon(
                     Icons.visibility,
                     color: ColorManager.primary,
                   )),
         filled: true,
-        fillColor: ColorManager.lightGrey.withValues(alpha: 0.5),
+        fillColor: ColorManager.lightGrey.withValues(alpha: 0.3),
         hintText: widget.hintText,
         hintTextDirection: TextDirection.rtl,
         border: OutlineInputBorder(
