@@ -42,6 +42,7 @@ class _CustomPasswordFiledState extends State<CustomPasswordFiled> {
       controller: widget.controller,
       decoration: InputDecoration(
         suffixIcon: widget.suffixIcon,
+        suffixIconConstraints: BoxConstraints(maxWidth: 30, maxHeight: 30),
         hintStyle: getMediumStyle(
             color: ColorManager.secondaryPrimary.withValues(alpha: 0.4),
             fontSize: 14.sp),

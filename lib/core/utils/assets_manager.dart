@@ -21,6 +21,11 @@ abstract class SvgAssets {
   static const String start = '${svgPath}start.svg';
   static const String email = '${svgPath}email.svg';
   static const String lock = '${svgPath}Lock.svg';
+  static const String user = '${svgPath}User.svg';
+  static const String phone = '${svgPath}phone.svg';
+  static const String driverlisence = '${svgPath}Driverlicense.svg';
+  static const String calender = '${svgPath}Calendar.svg';
+  static const String registrationlock = '${svgPath}registrationlock.svg';
 }
 
 abstract class JsonAssets {

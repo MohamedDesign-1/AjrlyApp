@@ -37,6 +37,7 @@ class CustomTextFiled extends StatelessWidget {
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
+        suffixIconConstraints: BoxConstraints(maxWidth: 30,maxHeight: 30),
         filled: true,
         fillColor: ColorManager.lightGrey.withOpacity(0.5),
         hintText: hintText,

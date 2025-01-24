@@ -2,7 +2,6 @@ import 'package:ajrly/core/utils/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../utils/assets_manager.dart';
 
 class CustomButton extends StatelessWidget {
   final Function() onTap;
@@ -53,14 +52,13 @@ class CustomButton extends StatelessWidget {
                 title,
                 style: getTextStyle(16, FontWeight.bold, fontcolor),
               ),
-              if(showicon??false)
-              SizedBox(width: 8.w),
-              if(showicon??false)
-              SvgPicture.asset(
-               iconasset??'',
-                height: 24.h,
-                width: 24.w,
-              ),
+              if (showicon ?? false) SizedBox(width: 8.w),
+              if (showicon ?? false)
+                SvgPicture.asset(
+                  iconasset ?? '',
+                  height: 24.h,
+                  width: 24.w,
+                ),
             ],
           ),
         ),
