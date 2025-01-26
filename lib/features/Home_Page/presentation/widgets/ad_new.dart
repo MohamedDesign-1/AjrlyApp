@@ -16,8 +16,14 @@ class _AdNewState extends State<AdNew> {
     return Column(
       spacing: 10.h,
       children: [
-        AdNewCard(),
-        AdNewCard(),
+        InkWell(
+          onTap: () {},
+          child: AdNewCard(),
+        ),
+        InkWell(
+          onTap: () {},
+          child: AdNewCard(),
+        ),
       ],
     );
   }
