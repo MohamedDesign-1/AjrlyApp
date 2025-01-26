@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../features/Home_Page/presentation/homepage.dart';
+import '../../features/Home_Page/presentation/pages/homepage.dart';
 import '../../features/splash_screen/presentation/pages/splash_screen.dart';
 
 final getIt = GetIt.instance; // Ensure this is initialized somewhere in your project

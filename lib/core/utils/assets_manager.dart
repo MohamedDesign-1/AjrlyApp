@@ -6,6 +6,9 @@ const String language = 'lib/config/language';
 
 abstract class ImageAssets {
   static const String logo = '${imagesPath}logo.png';
+  static const String car = '${imagesPath}car.png';
+  static const String text = '${imagesPath}text.png';
+  static const String car2 = '${imagesPath}car2.png';
 
 }
 
@@ -22,6 +25,13 @@ abstract class SvgAssets {
   static const String booking = '${svgPath}booking.svg';
   static const String fav = '${svgPath}fav.svg';
   static const String user = '${svgPath}user.svg';
+  static const String car = '${svgPath}car.svg';
+  static const String text = '${svgPath}text.svg';
+  static const String Scooter = '${svgPath}Scooter.svg';
+  static const String truck = '${svgPath}Hatchback.svg';
+  static const String car2 = '${svgPath}car2.svg';
+  static const String Gearbox = '${svgPath}Gearbox.svg';
+  static const String Engine = '${svgPath}Gasoline.svg';
 }
 
 abstract class JsonAssets {
