@@ -13,7 +13,7 @@ class AdNewCard extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: ColorManager.lightgray,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
       ),
       child: Stack(
         children: [
@@ -22,7 +22,7 @@ class AdNewCard extends StatelessWidget {
             width: double.infinity,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0.w),
             child: Column(
               children: [
                 Container(
@@ -30,7 +30,7 @@ class AdNewCard extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: ColorManager.white,
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                   ),
                   child: Image.asset(
                     ImageAssets.car2,
@@ -40,13 +40,13 @@ class AdNewCard extends StatelessWidget {
                   height: 100.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                   ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0.w),
+                    child: Column(
+                      children: [
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
@@ -71,7 +71,7 @@ class AdNewCard extends StatelessWidget {
                                 DecoratedBox(
                                   decoration: BoxDecoration(
                                     color: ColorManager.white,
-                                    borderRadius: BorderRadius.circular(16),
+                                    borderRadius: BorderRadius.circular(16.r),
                                   ),
                                   child: Container(
                                     height: 22.h,
@@ -96,61 +96,62 @@ class AdNewCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                SvgAssets.Gearbox,
-                                height: 16.h,
-                                color: ColorManager.primary,
-                              ),
-                              SizedBox(width: 4.w),
-                              Text(
-                                "اوتوماتيك",
-                                style: getRegularStyle(
-                                    color: ColorManager.black, fontSize: 12.sp),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                SvgAssets.Engine,
-                                height: 16.h,
-                                color: ColorManager.primary,
-                              ),
-                              SizedBox(width: 4.w),
-                              Text(
-                                "بنزين",
-                                style: getRegularStyle(
-                                    color: ColorManager.black, fontSize: 12.sp),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                SvgAssets.user,
-                                height: 16.h,
-                                color: ColorManager.primary,
-                              ),
-                              SizedBox(width: 4.w),
-                              Text(
-                                "راكب"+ "4 " ,
-                                style: getRegularStyle(
-                                    color: ColorManager.black, fontSize: 12.sp),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                        SizedBox(height: 8.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "اوتوماتيك",
+                                  style: getSemiBoldStyle(
+                                      color: ColorManager.black, fontSize: 12.sp),
+                                ),
+                                SizedBox(width: 4.w),
+                                SvgPicture.asset(
+                                  SvgAssets.Gearbox,
+                                  height: 16.h,
+                                  color: ColorManager.primary,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "بنزين",
+                                  style: getSemiBoldStyle(
+                                      color: ColorManager.black, fontSize: 12.sp),
+                                ),
+                                SizedBox(width: 4.w),
+                                SvgPicture.asset(
+                                  SvgAssets.Engine,
+                                  height: 16.h,
+                                  color: ColorManager.primary,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "راكب" + "4 " ,
+                                  style: getSemiBoldStyle(
+                                      color: ColorManager.black, fontSize: 12.sp),
+                                ),
+                                SizedBox(width: 4.w),
+                                SvgPicture.asset(
+                                  SvgAssets.user,
+                                  height: 16.h,
+                                  color: ColorManager.primary,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

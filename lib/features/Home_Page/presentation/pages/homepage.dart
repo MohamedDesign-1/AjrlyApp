@@ -19,76 +19,75 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          spacing: 10.h,
-          children: [
-            CustomCard(
-                color: ColorManager.primary,
-                height: 140.h,
-                width: double.infinity),
-            Container(
-              alignment: Alignment.centerRight,
-              padding: EdgeInsets.only(right: 10.w),
-              child: Text(
-                "الفئات",
-                style: getBoldStyle(
-                  color: ColorManager.black,
-                  fontSize: 18.sp,
-                ),
-                textAlign: TextAlign.right,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            spacing: 10.h,
+            children: [
+              CustomCard(
+                  color: ColorManager.primary,
+                  height: 140.h,
+                  width: double.infinity
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomBottonHome(
-                    svg: SvgPicture.asset(
-                      SvgAssets.Scooter,
-                      height: 45.h,
-                    ),
-                    color: ColorManager.lightgray,
-                    onTap: () {},
-                    width: 152.w,
-                    height: 92.h,
-                    text: 'سكوترز'),
-                CustomBottonHome(
-                    svg: SvgPicture.asset(
-                      SvgAssets.truck,
-                      height: 45.h,
-                    ),
-                    text: "عربيات",
-                    color: ColorManager.lightgray,
-                    onTap: () {},
-                    width: 152.w,
-                    height: 94.h),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  child: Text(
-                    "مشاهدة الكل",
-                    style: getBoldStyle(
-                        color: ColorManager.primary, fontSize: 18.sp),
+              Container(
+                alignment: Alignment.centerRight,
+                padding: EdgeInsets.only(right: 10.w),
+                child: Text(
+                  "الفئات",
+                  style: getBoldStyle(
+                    color: ColorManager.black,
+                    fontSize: 18.sp,
                   ),
-                  onTap: () {},
+                  textAlign: TextAlign.right,
                 ),
-                Text(
-                  "اخر العروض",
-                  style:
-                  getBoldStyle(color: ColorManager.black, fontSize: 18.sp),
-                ),
-              ],
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: AdNew(),
               ),
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomBottonHome(
+                      svg: SvgPicture.asset(
+                        SvgAssets.Scooter,
+                        height: 45.h,
+                      ),
+                      color: ColorManager.lightgray.withValues(alpha: 0.4),
+                      onTap: () {},
+                      width: 162.w,
+                      height: 92.h,
+                      text: 'سكوترز'),
+                  CustomBottonHome(
+                      svg: SvgPicture.asset(
+                        SvgAssets.truck,
+                        height: 45.h,
+                      ),
+                      text: "عربيات",
+                      color: ColorManager.lightgray.withValues(alpha: 0.4),
+                      onTap: () {},
+                      width: 162.w,
+                      height: 94.h),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    child: Text(
+                      "مشاهدة الكل",
+                      style: getBoldStyle(
+                          color: ColorManager.primary, fontSize: 18.sp),
+                    ),
+                    onTap: () {},
+                  ),
+                  Text(
+                    "اخر العروض",
+                    style:
+                    getBoldStyle(color: ColorManager.black, fontSize: 18.sp),
+                  ),
+                ],
+              ),
+              AdNew(),
+            ],
+          ),
         ),
       ),
     );
