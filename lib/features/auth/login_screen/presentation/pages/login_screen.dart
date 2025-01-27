@@ -4,20 +4,36 @@ import 'package:ajrly/core/components/validators.dart';
 import 'package:ajrly/core/utils/assets_manager.dart';
 import 'package:ajrly/core/utils/color_mananger.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
+import 'package:ajrly/core/utils/toast_utils.dart';
+import 'package:ajrly/features/auth/login_screen/presentation/manager/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../config/di/di.dart';
 import '../../../../../config/routes/routes.dart';
 import '../../../../../core/components/custom_buttomn.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  final LoginCubit loginCubit = getIt<LoginCubit>();
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocListener<LoginCubit, LoginState>(
+      bloc: loginCubit,
+  listener: (context, state) {
+    if (state is LoginSuccessState) {
+      ToastUtils.showSuccessToast(context, state.loginResponseEntity.message ?? "", 'تم تسجيل الدخول بنجاح');
+      context.go(Routes.mainLayoutRoute);
+    } else if (state is LoginErrorState) {
+      ToastUtils.showErrorToast(context, state.failure.errorMessage, 'خطأ ما حدث');
+    }
+  },
+  child: Scaffold(
       appBar: AppBar(
         toolbarHeight: 223.h,
         shape: const RoundedRectangleBorder(
@@ -39,6 +55,7 @@ class LoginScreen extends StatelessWidget {
         padding: EdgeInsets.all(16.0.w),
         child: SingleChildScrollView(
           child: Form(
+            key: loginCubit.formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -63,6 +80,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16.h),
                 CustomTextFiled(
+                  controller: loginCubit.emailController,
                   hintText: '   ادخــل الــبريـد الالــكــتروني',
                   borderRadius: BorderRadius.circular(4),
                   suffixIcon: Padding(
@@ -85,6 +103,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16.h),
                 CustomPasswordFiled(
+                  controller: loginCubit.passwordController,
                   hintText: '   ادخــل كـــلمة الـــمرور',
                   borderRadius: BorderRadius.circular(4),
                   validator: AppValidators.validatePassword,
@@ -115,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 32.h),
                 CustomButton(
                   onTap: () {
-                    context.go(Routes.mainLayOutRoute);
+                    loginCubit.login();
                   },
                   title: 'تسجيل الدخول',
                   color: ColorManager.primary,
@@ -131,6 +150,7 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ),
+);
   }
 }

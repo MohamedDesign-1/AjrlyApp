@@ -54,7 +54,7 @@ class RegsiterScreen extends StatelessWidget {
                   suffixIcon: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SvgPicture.asset(
-                      SvgAssets.user,
+                      SvgAssets.user2,
                       height: 24.h,
                       width: 24.w,
                     ),
@@ -117,7 +117,7 @@ class RegsiterScreen extends StatelessWidget {
                   suffixIcon: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SvgPicture.asset(
-                      SvgAssets.driverlisence,
+                      SvgAssets.driverLisence,
                       height: 24.h,
                       width: 24.w,
                     ),

@@ -1,11 +1,16 @@
+import 'package:ajrly/core/utils/shared_pref_utils.dart';
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'Service/bloc_observer.dart';
 import 'config/di/di.dart';
 import 'config/routes/route_manger.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  SharedPrefUtils.init();
   configureDependencies();
   runApp(AjrlyApp());
 }
@@ -24,7 +29,6 @@ class AjrlyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           routerConfig: getRouter,
         );
-
       },
     );
   }

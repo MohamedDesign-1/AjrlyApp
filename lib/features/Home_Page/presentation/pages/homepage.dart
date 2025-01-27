@@ -47,10 +47,10 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   CustomBottonHome(
                       svg: SvgPicture.asset(
-                        SvgAssets.Scooter,
+                        SvgAssets.scooter,
                         height: 45.h,
                       ),
-                      color: ColorManager.lightgray.withValues(alpha: 0.4),
+                      color: ColorManager.lightgray.withValues(alpha: 0.8),
                       onTap: () {},
                       width: 162.w,
                       height: 92.h,
@@ -61,7 +61,7 @@ class _HomepageState extends State<Homepage> {
                         height: 45.h,
                       ),
                       text: "عربيات",
-                      color: ColorManager.lightgray.withValues(alpha: 0.4),
+                      color: ColorManager.lightgray.withValues(alpha: 0.8),
                       onTap: () {},
                       width: 162.w,
                       height: 94.h),

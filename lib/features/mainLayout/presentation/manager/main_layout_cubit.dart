@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
-import '../../add_ad/presentation/pages/add_ad_screen.dart';
+import '../../../add_ad/presentation/pages/add_ad_screen.dart';
 
 part 'main_layout_state.dart';
 

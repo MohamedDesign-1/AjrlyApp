@@ -12,7 +12,7 @@ class AdNewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: ColorManager.lightgray,
+        color: ColorManager.lightgray.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: Stack(
@@ -110,7 +110,7 @@ class AdNewCard extends StatelessWidget {
                                 ),
                                 SizedBox(width: 4.w),
                                 SvgPicture.asset(
-                                  SvgAssets.Gearbox,
+                                  SvgAssets.gearBox,
                                   height: 16.h,
                                   color: ColorManager.primary,
                                 ),
@@ -126,7 +126,7 @@ class AdNewCard extends StatelessWidget {
                                 ),
                                 SizedBox(width: 4.w),
                                 SvgPicture.asset(
-                                  SvgAssets.Engine,
+                                  SvgAssets.engine,
                                   height: 16.h,
                                   color: ColorManager.primary,
                                 ),
@@ -142,7 +142,7 @@ class AdNewCard extends StatelessWidget {
                                 ),
                                 SizedBox(width: 4.w),
                                 SvgPicture.asset(
-                                  SvgAssets.user,
+                                  SvgAssets.user2,
                                   height: 16.h,
                                   color: ColorManager.primary,
                                 ),
