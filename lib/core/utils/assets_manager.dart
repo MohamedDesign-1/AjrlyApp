@@ -17,6 +17,11 @@ abstract class IconAssets {
   static const String booking = '${iconsPath}booking.png';
   static const String fav = '${iconsPath}fav.png';
   static const String user = '${iconsPath}user.png';
+  static const String onboardingscreen1 = '${imagesPath}onboardingscreen1.png';
+  static const String onboardingscreen2 = '${imagesPath}onboardingscreen2.png';
+  static const String onboardingscreen3 = '${imagesPath}onboardingscreen3.png';
+  static const String onboardingscreen4 = '${imagesPath}onboardingscreen4.png';
+
 }
 
 abstract class SvgAssets {

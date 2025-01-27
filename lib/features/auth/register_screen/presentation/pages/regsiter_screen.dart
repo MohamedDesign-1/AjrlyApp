@@ -174,7 +174,7 @@ class RegsiterScreen extends StatelessWidget {
                 SizedBox(height: 16.h),
                   CustomButton(
                       onTap: () {
-                        context.go(Routes.mainLayOutRoute);
+                        context.go(Routes.mainLayoutRoute);
                       },
                       title: 'تسجيل حساب جديد',
                       color: ColorManager.primary,
