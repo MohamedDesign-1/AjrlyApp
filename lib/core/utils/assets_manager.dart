@@ -6,26 +6,32 @@ const String language = 'lib/config/language';
 
 abstract class ImageAssets {
   static const String logo = '${imagesPath}logo.png';
-  static const String onboardingscreen1 = '${imagesPath}onboardingscreen1.png';
-  static const String onboardingscreen2 = '${imagesPath}onboardingscreen2.png';
-  static const String onboardingscreen3 = '${imagesPath}onboardingscreen3.png';
-  static const String onboardingscreen4 = '${imagesPath}onboardingscreen4.png';
+  static const String car = '${imagesPath}car.png';
+  static const String text = '${imagesPath}text.png';
+  static const String car2 = '${imagesPath}car2.png';
+
 }
 
 abstract class IconAssets {
-  static const String person = '${iconsPath}person.png';
+  static const String home = '${iconsPath}home.png';
+  static const String booking = '${iconsPath}booking.png';
+  static const String fav = '${iconsPath}fav.png';
+  static const String user = '${iconsPath}user.png';
 }
 
 abstract class SvgAssets {
-  static const String aPlus = '${svgPath}APlus.svg';
-  static const String start = '${svgPath}start.svg';
-  static const String email = '${svgPath}email.svg';
-  static const String lock = '${svgPath}Lock.svg';
-  static const String user = '${svgPath}User.svg';
-  static const String phone = '${svgPath}phone.svg';
-  static const String driverlisence = '${svgPath}Driverlicense.svg';
-  static const String calender = '${svgPath}Calendar.svg';
-  static const String registrationlock = '${svgPath}registrationlock.svg';
+  static const String person = '${svgPath}person.svg';
+  static const String home = '${svgPath}home.svg';
+  static const String booking = '${svgPath}booking.svg';
+  static const String fav = '${svgPath}fav.svg';
+  static const String user = '${svgPath}user.svg';
+  static const String car = '${svgPath}car.svg';
+  static const String text = '${svgPath}text.svg';
+  static const String Scooter = '${svgPath}Scooter.svg';
+  static const String truck = '${svgPath}Hatchback.svg';
+  static const String car2 = '${svgPath}car2.svg';
+  static const String Gearbox = '${svgPath}Gearbox.svg';
+  static const String Engine = '${svgPath}Gasoline.svg';
 }
 
 abstract class JsonAssets {
