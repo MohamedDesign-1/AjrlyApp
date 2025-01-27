@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/auth/login_screen/presentation/manager/login_cubit.dart';
 import '../../features/auth/onboarding_screen/presentation/pages/onboarding_screen.dart';
+import '../../features/auth/register_screen/presentation/manager/register_cubit.dart';
 import '../../features/auth/register_screen/presentation/pages/regsiter_screen.dart';
 import '../../features/mainLayout/presentation/manager/main_layout_cubit.dart';
 import '../../features/mainLayout/presentation/pages/main_layout.dart';
@@ -26,7 +27,12 @@ final getRouter = GoRouter(
     ),
     GoRoute(
       path: Routes.registerRoute,
-      builder: (context, state) => const RegsiterScreen(),
+      builder: (context, state) =>
+          BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
+            lazy: false,
+            child: RegsiterScreen(),
+          ),
     ),
     GoRoute(
       path: Routes.loginRoute,

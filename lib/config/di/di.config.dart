@@ -25,6 +25,18 @@ import '../../features/auth/login_screen/domain/use_cases/login_use_case.dart'
     as _i299;
 import '../../features/auth/login_screen/presentation/manager/login_cubit.dart'
     as _i540;
+import '../../features/auth/register_screen/data/data_sources/remote/impl/register_remote_data_source_impl.dart'
+    as _i109;
+import '../../features/auth/register_screen/data/data_sources/remote/register_remote_data_source.dart'
+    as _i424;
+import '../../features/auth/register_screen/data/repositories/register_repository_impl.dart'
+    as _i563;
+import '../../features/auth/register_screen/domain/repositories/register_repository.dart'
+    as _i628;
+import '../../features/auth/register_screen/domain/use_cases/register_use_case.dart'
+    as _i359;
+import '../../features/auth/register_screen/presentation/manager/register_cubit.dart'
+    as _i593;
 import '../../features/mainLayout/presentation/manager/main_layout_cubit.dart'
     as _i361;
 
@@ -41,14 +53,22 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i361.MainLayoutCubit>(() => _i361.MainLayoutCubit());
     gh.singleton<_i1057.ApiManager>(() => _i1057.ApiManager());
+    gh.factory<_i424.RegisterRemoteDataSource>(() =>
+        _i109.RegisterRemoteDataSourceImpl(apiManger: gh<_i1057.ApiManager>()));
+    gh.factory<_i628.RegisterRepository>(() => _i563.RegisterRepositoryImpl(
+        registerRemoteDataSource: gh<_i424.RegisterRemoteDataSource>()));
     gh.factory<_i1069.LoginRemoteDataSource>(() =>
         _i508.LoginRemoteDataSourceImpl(apiManger: gh<_i1057.ApiManager>()));
     gh.factory<_i806.LoginRepository>(() => _i530.LoginRepositoryImpl(
         loginRemoteDataSource: gh<_i1069.LoginRemoteDataSource>()));
     gh.factory<_i299.LoginUseCase>(
         () => _i299.LoginUseCase(loginRepository: gh<_i806.LoginRepository>()));
+    gh.factory<_i359.RegisterUseCase>(() => _i359.RegisterUseCase(
+        registerRepository: gh<_i628.RegisterRepository>()));
     gh.factory<_i540.LoginCubit>(
         () => _i540.LoginCubit(loginUseCase: gh<_i299.LoginUseCase>()));
+    gh.factory<_i593.RegisterCubit>(() =>
+        _i593.RegisterCubit(registerUseCase: gh<_i359.RegisterUseCase>()));
     return this;
   }
 }
