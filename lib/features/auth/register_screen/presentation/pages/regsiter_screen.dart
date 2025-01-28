@@ -25,23 +25,18 @@ class RegsiterScreen extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccess) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
             ToastUtils.showSuccessToast(
               context,
               state.registerResponseEntity.message ?? "",
               'تم تسجيل الدخول بنجاح',
             );
             context.go(Routes.mainLayoutRoute);
-          });
         } else if (state is RegisterError) {
-          // عرض رسالة الخطأ
-          WidgetsBinding.instance.addPostFrameCallback((_) {
             ToastUtils.showErrorToast(
               context,
               state.failure.errorMessage,
               'خطاء ما حدث',
             );
-          });
         }
       },
       builder: (context, state) {
