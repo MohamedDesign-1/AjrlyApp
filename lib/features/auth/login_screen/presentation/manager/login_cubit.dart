@@ -13,7 +13,7 @@ part 'login_state.dart';
 @injectable
 class LoginCubit extends Cubit<LoginState> {
   var formKey = GlobalKey<FormState>();
-  var emailController = TextEditingController(text: 'yahia@gmail.com');
+  var emailController = TextEditingController(text: 'mohamed25@gmail.com');
   var passwordController = TextEditingController(text: 'Yahia123');
 
   LoginUseCase loginUseCase;
