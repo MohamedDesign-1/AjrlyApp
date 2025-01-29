@@ -1,12 +1,13 @@
 import 'package:ajrly/core/utils/assets_manager.dart';
 import 'package:ajrly/core/utils/color_mananger.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
+import 'package:ajrly/features/Home_Page/domain/entities/ads_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AdNewCard extends StatelessWidget {
-  const AdNewCard({Key? key}) : super(key: key);
+  AdsDataEntity? ad;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class AdNewCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16.r),
                   ),
                   child: Image.asset(
-                    ImageAssets.car2,
+                    ad!.images![0],
                   ),
                 ),
                 Container(
@@ -58,7 +59,7 @@ class AdNewCard extends StatelessWidget {
                                       fontSize: 12.sp),
                                 ),
                                 Text(
-                                  "500",
+                                  ad!.price.toString(),
                                   style: getBoldStyle(
                                       color: ColorManager.primary,
                                       fontSize: 16.sp),
@@ -77,7 +78,7 @@ class AdNewCard extends StatelessWidget {
                                     height: 22.h,
                                     width: 50.w,
                                     child: Text(
-                                      "سيدان",
+                                      ad!.vehicleCategory!,
                                       style: getBoldStyle(
                                           color: ColorManager.primary,
                                           fontSize: 12.sp),
@@ -87,7 +88,7 @@ class AdNewCard extends StatelessWidget {
                                 ),
                                 SizedBox(height: 4.h),
                                 Text(
-                                  "نيسان صنى للاجار",
+                                  ad!.title!,
                                   style: getBoldStyle(
                                       color: ColorManager.black,
                                       fontSize: 16.sp),
@@ -104,7 +105,7 @@ class AdNewCard extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "اوتوماتيك",
+                                  ad!.transmissionType!,
                                   style: getSemiBoldStyle(
                                       color: ColorManager.black, fontSize: 12.sp),
                                 ),
@@ -120,7 +121,7 @@ class AdNewCard extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "بنزين",
+                                  ad!.fuelType!,
                                   style: getSemiBoldStyle(
                                       color: ColorManager.black, fontSize: 12.sp),
                                 ),
@@ -136,7 +137,7 @@ class AdNewCard extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "راكب" + "4 " ,
+                                  "Rراكب${ad!.numberOfSeats}",
                                   style: getSemiBoldStyle(
                                       color: ColorManager.black, fontSize: 12.sp),
                                 ),
