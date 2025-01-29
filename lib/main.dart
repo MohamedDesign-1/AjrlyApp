@@ -1,9 +1,9 @@
+import 'package:ajrly/bloc_observer.dart';
 import 'package:ajrly/core/utils/shared_pref_utils.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'Service/bloc_observer.dart';
 import 'config/di/di.dart';
 import 'config/routes/route_manger.dart';
 

@@ -13,6 +13,9 @@ abstract class ImageAssets {
   static const String onboardingscreen2 = '${imagesPath}onboardingscreen2.png';
   static const String onboardingscreen3 = '${imagesPath}onboardingscreen3.png';
   static const String onboardingscreen4 = '${imagesPath}onboardingscreen4.png';
+  static const String EnterImage = '${imagesPath}Frame 128.png';
+  static const String Heart = '${imagesPath}Heart@2x.png';
+  static const String No_Tasks = '${imagesPath}No No task.png';
 }
 
 abstract class IconAssets {
@@ -20,7 +23,12 @@ abstract class IconAssets {
   static const String booking = '${iconsPath}booking.png';
   static const String fav = '${iconsPath}fav.png';
   static const String user1 = '${iconsPath}user.png';
-
+  static const String Calendar = '${iconsPath}Calendar.png';
+  static const String Driverlicense = '${iconsPath}Driver license.png';
+  static const String Group = '${iconsPath}Group.png';
+  static const String Pen = '${iconsPath}Pen.png';
+  static const String Phone_Call = '${iconsPath}Phone call.png';
+  static const String Email = '${iconsPath}Email.png';
 }
 
 abstract class SvgAssets {
