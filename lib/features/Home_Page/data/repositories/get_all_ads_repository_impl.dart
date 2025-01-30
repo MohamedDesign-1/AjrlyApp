@@ -7,6 +7,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/get_all_ads_repositories.dart';
+import '../models/get_all_ads_model.dart';
 
 @Injectable(as: GetAllAdsRepositories)
 class GetAllAdsRepositoriesImpl implements GetAllAdsRepositories {

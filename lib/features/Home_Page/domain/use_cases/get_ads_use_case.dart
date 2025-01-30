@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/errors/failures.dart';
+import '../../data/models/get_all_ads_model.dart';
 import '../entities/ads_entity.dart';
 
 @injectable

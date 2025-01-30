@@ -16,28 +16,41 @@ class GetAllAdsRemoteDataSourceImpl implements GetAllAdsRemoteDataSource {
   GetAllAdsRemoteDataSourceImpl({required this.apiManager});
 
   @override
-  Future<Either<Failure, List<GetAllAdsEntity>>> getAds() async {
+  Future<Either<Failure, List<GetAllAdsModel>>> getAds() async {
     try {
       print("🚀 Fetching ads started...");
-
       ConnectivityResult checkResult = ConnectivityResult.wifi;
       print("🔍 Internet connection status: $checkResult");
 
-      if (checkResult == ConnectivityResult.none) {
-        print("⚠️ No internet connection detected!");
-        return Left(NetworkFailure(errorMessage: "No Internet Connection"));
-      }
+      if (checkResult == ConnectivityResult.wifi || checkResult == ConnectivityResult.mobile) {
+        print("🌐 Internet connection is available.");
 
-      var response = await apiManager.get(EndPoints.advertisementsApi , headers: {"Authorization": "Bearer ${SharedPrefUtils.getDate(key: "token")}" });
-      print("📩 API response received: ${response.data}");
+        var token = SharedPrefUtils.getDate(key: 'token');
+        print("🔑 Retrieved token: $token");
 
-      if (response.statusCode != null && response.statusCode! >= 200 && response.statusCode! < 300) {
-        var getAllAdsModel = GetAllAdsModel.fromJson(response.data);
-        print("✅ Successfully fetched ${getAllAdsModel.data?.length} ads!");
-        return Right(response.data);
+        var response = await apiManager.get(EndPoints.advertisementsApi, headers: {
+          "Authorization": "Bearer $token",
+        });
+
+        print("📩 API response received: ${response.data}");
+
+        if (response.statusCode! >= 200 && response.statusCode! < 300) {
+          print("✅ API response status: ${response.statusCode} - Success");
+
+          List<GetAllAdsModel> adsList = [];
+          var getNewsDto = GetAllAdsModel.fromJson(response.data);
+          adsList.add(getNewsDto);
+
+          print("📊 Total ads fetched: ${adsList.length}");
+
+          return Right(adsList);
+        } else {
+          print("❌ Server error: ${response.statusMessage}");
+          return Left(ServerFailure(errorMessage: response.statusMessage!));
+        }
       } else {
-        print("❌ Server error: ${response.statusMessage}");
-        return Left(ServerFailure(errorMessage: response.statusMessage ?? "Unknown server error"));
+        print("⚠️ No internet connection detected.");
+        return Left(NetworkFailure(errorMessage: "No Internet Connection"));
       }
     } catch (e) {
       print("🔥 An error occurred while fetching ads: $e");

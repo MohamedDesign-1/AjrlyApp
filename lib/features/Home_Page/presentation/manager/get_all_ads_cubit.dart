@@ -1,3 +1,4 @@
+import 'package:ajrly/features/Home_Page/data/models/get_all_ads_model.dart';
 import 'package:ajrly/features/Home_Page/domain/use_cases/get_ads_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
