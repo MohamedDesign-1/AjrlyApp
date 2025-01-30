@@ -119,7 +119,9 @@ class MainLayout extends StatelessWidget {
                           color: ColorManager.primary,
                           width: 4.w,
                           strokeAlign: BorderSide.strokeAlignOutside)),
-                  onPressed: () {},
+                  onPressed: () {
+                    mainLayoutCubit.changeIndex(2);
+                  },
                   child: Icon(Icons.add),
                 ),
               ),

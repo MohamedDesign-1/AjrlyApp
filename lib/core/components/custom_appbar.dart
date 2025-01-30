@@ -11,7 +11,10 @@ class CustomAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      title: Text(title , style: getMediumStyle(color: ColorManager.white, fontSize: 18.sp)),
+      title: Text(
+        title,
+        style: getBoldStyle(color: ColorManager.white, fontSize: 24.sp),
+      ),
       backgroundColor: ColorManager.primary,
       toolbarHeight: 90.h,
       shape: RoundedRectangleBorder(

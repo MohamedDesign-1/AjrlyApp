@@ -6,29 +6,51 @@ import '../utils/color_mananger.dart';
 
 class NotHaveItems extends StatelessWidget {
   String message;
-  IconData icon;
+  IconData? icon;
+  Image? image;
+  Color color;
+  int size;
+  double spacing;
+  double? height ;
+  double? width ;
 
-  NotHaveItems({super.key, required this.message, required this.icon});
+
+  NotHaveItems(
+      {super.key,
+      required this.message,
+      this.icon,
+      this.image,
+      required this.color,
+      required this.size,
+      required this.spacing,
+      this.height ,
+      this.width,
+      });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        spacing: spacing.h,
         children: [
-          Icon(
-            icon,
-            size: 80.sp,
-            color: ColorManager.primary,
+         Container(
+           height: height ?? 100.h,
+           width: width ?? 100.w,
+           child:  image ??
+               Icon(
+                 icon,
+                 color: ColorManager.primary,
+                 size: 100.r,
+               ),
           ),
-          SizedBox(height: 16.h),
           Text(
             message,
-            style: getBoldStyle(color: Colors.grey, fontSize: 20.sp),
+            style: getBoldStyle(color: color, fontSize: size.sp),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
     );
-
   }
 }

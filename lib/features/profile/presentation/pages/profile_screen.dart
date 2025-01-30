@@ -14,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(90.h),
-        child: CustomAppbar(title: 'الملف الشخصي'),
+        child: CustomAppbar(title: 'الملف الشخصي' ),
       ),
       body: SingleChildScrollView(
         child: Padding(
