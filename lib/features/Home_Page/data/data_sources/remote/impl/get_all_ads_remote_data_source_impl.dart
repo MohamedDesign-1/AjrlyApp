@@ -39,7 +39,11 @@ class GetAllAdsRemoteDataSourceImpl implements GetAllAdsRemoteDataSource {
 
           List<GetAllAdsModel> adsList = [];
           var getNewsDto = GetAllAdsModel.fromJson(response.data);
-          adsList.add(getNewsDto);
+
+          // Ensure all ads are added to the list
+          if (getNewsDto.data != null) {
+            adsList.addAll(getNewsDto.data!.map((ad) => GetAllAdsModel(data: [ad])));
+          }
 
           print("📊 Total ads fetched: ${adsList.length}");
 
@@ -58,3 +62,4 @@ class GetAllAdsRemoteDataSourceImpl implements GetAllAdsRemoteDataSource {
     }
   }
 }
+

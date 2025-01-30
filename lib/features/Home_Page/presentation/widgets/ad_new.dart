@@ -1,7 +1,6 @@
 import 'package:ajrly/core/utils/color_mananger.dart';
 import 'package:ajrly/core/utils/toast_utils.dart';
 import 'package:ajrly/features/Home_Page/presentation/manager/get_all_ads_cubit.dart';
-import 'package:ajrly/features/Home_Page/presentation/widgets/ad_new_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,12 +33,16 @@ class AdNew extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 itemCount: state.getAllAds.length,
                 itemBuilder: (context, index) {
-                  final ad = state.getAllAds[index]; // Access ad here
+                  final ad = state.getAllAds[index];
+                  final adData = ad.data;
+                  if (adData == null || adData.isEmpty) {
+                    return SizedBox();
+                  }
                   return Padding(
                     padding: EdgeInsets.only(bottom: 10.h),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: ColorManager.lightgray.withValues(alpha: 0.8),
+                        color: ColorManager.lightgray.withOpacity(0.8),
                         borderRadius: BorderRadius.circular(16.r),
                       ),
                       child: Stack(
@@ -62,8 +65,8 @@ class AdNew extends StatelessWidget {
                                   child: AspectRatio(
                                     aspectRatio: 16 / 9,
                                     child: Image.network(
-                                      ad.data?[index].images?.isNotEmpty ?? false
-                                          ? ad.data![index].images![1]
+                                      adData.first.images?.isNotEmpty == true
+                                          ? adData.first.images!.first
                                           : 'default_image_url',
                                       fit: BoxFit.cover,
                                     ),
@@ -91,7 +94,7 @@ class AdNew extends StatelessWidget {
                                                       fontSize: 12.sp),
                                                 ),
                                                 Text(
-                                                  ad.data?[index].price?.toString() ?? "",
+                                                  adData.first.price?.toString() ?? "",
                                                   style: getBoldStyle(
                                                       color: ColorManager.primary,
                                                       fontSize: 16.sp),
@@ -110,7 +113,7 @@ class AdNew extends StatelessWidget {
                                                     height: 22.h,
                                                     width: 50.w,
                                                     child: Text(
-                                                      ad.data?[index].vehicleCategory ?? '',
+                                                      adData.first.vehicleCategory ?? '',
                                                       style: getBoldStyle(
                                                           color: ColorManager.primary,
                                                           fontSize: 12.sp),
@@ -120,7 +123,7 @@ class AdNew extends StatelessWidget {
                                                 ),
                                                 SizedBox(height: 4.h),
                                                 Text(
-                                                  ad.data?[index].title ?? '',
+                                                  adData.first.title ?? '',
                                                   style: getBoldStyle(
                                                       color: ColorManager.black,
                                                       fontSize: 16.sp),
@@ -134,10 +137,9 @@ class AdNew extends StatelessWidget {
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  ad.data?[index].transmissionType ?? '',
+                                                  adData.first.transmissionType ?? '',
                                                   style: getSemiBoldStyle(
                                                       color: ColorManager.black,
                                                       fontSize: 12.sp),
@@ -151,10 +153,9 @@ class AdNew extends StatelessWidget {
                                               ],
                                             ),
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  ad.data?[index].fuelType ?? '',
+                                                  adData.first.fuelType ?? '',
                                                   style: getSemiBoldStyle(
                                                       color: ColorManager.black,
                                                       fontSize: 12.sp),
@@ -168,10 +169,9 @@ class AdNew extends StatelessWidget {
                                               ],
                                             ),
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  "راكب${ad.data?[index].numberOfSeats}",
+                                                  "راكب ${adData.first.numberOfSeats}",
                                                   style: getSemiBoldStyle(
                                                       color: ColorManager.black,
                                                       fontSize: 12.sp),
