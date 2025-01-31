@@ -15,7 +15,7 @@ class WellcomeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.r),
       ),
       child: SizedBox(
-        height: 90.h,
+        height: 95.h,
         width: double.infinity,
         child: Padding(
           padding: const EdgeInsets.all(8.0),

@@ -37,6 +37,18 @@ import '../../features/auth/register_screen/domain/use_cases/register_use_case.d
     as _i359;
 import '../../features/auth/register_screen/presentation/manager/register_cubit.dart'
     as _i593;
+import '../../features/Home_Page/data/data_sources/remote/get_all_ads_remote_data_source.dart'
+    as _i640;
+import '../../features/Home_Page/data/data_sources/remote/impl/get_all_ads_remote_data_source_impl.dart'
+    as _i715;
+import '../../features/Home_Page/data/repositories/get_all_ads_repository_impl.dart'
+    as _i802;
+import '../../features/Home_Page/domain/repositories/get_all_ads_repositories.dart'
+    as _i784;
+import '../../features/Home_Page/domain/use_cases/get_ads_use_case.dart'
+    as _i680;
+import '../../features/Home_Page/presentation/manager/get_all_ads_cubit.dart'
+    as _i113;
 import '../../features/mainLayout/presentation/manager/main_layout_cubit.dart'
     as _i361;
 
@@ -57,14 +69,24 @@ extension GetItInjectableX on _i174.GetIt {
         _i109.RegisterRemoteDataSourceImpl(apiManger: gh<_i1057.ApiManager>()));
     gh.factory<_i628.RegisterRepository>(() => _i563.RegisterRepositoryImpl(
         registerRemoteDataSource: gh<_i424.RegisterRemoteDataSource>()));
+    gh.factory<_i640.GetAllAdsRemoteDataSource>(() =>
+        _i715.GetAllAdsRemoteDataSourceImpl(
+            apiManager: gh<_i1057.ApiManager>()));
     gh.factory<_i1069.LoginRemoteDataSource>(() =>
         _i508.LoginRemoteDataSourceImpl(apiManger: gh<_i1057.ApiManager>()));
     gh.factory<_i806.LoginRepository>(() => _i530.LoginRepositoryImpl(
         loginRemoteDataSource: gh<_i1069.LoginRemoteDataSource>()));
     gh.factory<_i299.LoginUseCase>(
         () => _i299.LoginUseCase(loginRepository: gh<_i806.LoginRepository>()));
+    gh.factory<_i784.GetAllAdsRepositories>(() =>
+        _i802.GetAllAdsRepositoriesImpl(
+            getAllAdsRemoteDataSource: gh<_i640.GetAllAdsRemoteDataSource>()));
+    gh.factory<_i680.GetAdsUseCase>(() => _i680.GetAdsUseCase(
+        getAllAdsRepositories: gh<_i784.GetAllAdsRepositories>()));
     gh.factory<_i359.RegisterUseCase>(() => _i359.RegisterUseCase(
         registerRepository: gh<_i628.RegisterRepository>()));
+    gh.factory<_i113.GetAllAdsCubit>(
+        () => _i113.GetAllAdsCubit(gh<_i680.GetAdsUseCase>()));
     gh.factory<_i540.LoginCubit>(
         () => _i540.LoginCubit(loginUseCase: gh<_i299.LoginUseCase>()));
     gh.factory<_i593.RegisterCubit>(() =>
