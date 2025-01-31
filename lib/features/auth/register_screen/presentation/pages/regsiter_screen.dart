@@ -61,7 +61,7 @@ class RegsiterScreen extends StatelessWidget {
             title: InkWell(
               onTap: () => context.go(Routes.loginRoute),
               child: Icon(
-                Icons.arrow_forward,
+                Icons.arrow_back_ios,
                 color: ColorManager.white,),
             ),
           ),
@@ -232,12 +232,13 @@ class RegsiterScreen extends StatelessWidget {
                     CustomButton(
                         onTap: () {
                           registerCubit.register();
+                          context.go(Routes.mainLayoutRoute);
                         },
                         title: 'تسجيل حساب جديد',
                         color: ColorManager.primary,
                         outlineColor: ColorManager.white,
                         width: double.infinity,
-                        height: 48.h,
+                        height: 56.h,
                         radius: 4,
                         fontcolor: ColorManager.white),
                   ],

@@ -57,7 +57,7 @@ final getRouter = GoRouter(
                   create: (context) => getIt<MainLayoutCubit>(),
                 ),
               ],
-              child: const MainLayout(),
+              child: MainLayout(),
             ),
           ),
     ),
@@ -69,7 +69,7 @@ final getRouter = GoRouter(
               context.go(Routes.mainLayoutRoute);
               return false;
             },
-            child: const Homepage(),
+            child: Homepage(),
           ),
     ),
   ],
