@@ -22,8 +22,8 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             spacing: 16.h,
             children: [
-              WellcomeCard(),
-              Userinfo(),
+              WelcomeCard(wlcUserName: 'احمد محمود',),
+              Userinfo(birthday: "20/2/1999", phone: "0123456789", email:"email", id: "0123456789"),
               Profilebottom(),
             ],
           ),

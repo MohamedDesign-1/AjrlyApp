@@ -5,7 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'profile_item.dart';
 
 class Userinfo extends StatelessWidget {
-  const Userinfo({Key? key}) : super(key: key);
+  String email;
+  String phone;
+  String id;
+  String birthday;
+  Userinfo({Key? key , required this.email , required this.phone , required this.id , required this.birthday}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +18,22 @@ class Userinfo extends StatelessWidget {
       children: [
         ProfileItem(
           text: "user@gmail.com",
-          tittle: "البريد الالكتروني",
+          tittle: email,
           icon: Image.asset(IconAssets.Email),
         ),
         ProfileItem(
           text: "+201234567890",
-          tittle: "رقم الموبيل",
+          tittle: phone,
           icon: Image.asset(IconAssets.Phone_Call),
         ),
         ProfileItem(
           text: "01234567890123",
-          tittle: "الرقم القومي",
+          tittle: id,
           icon: Image.asset(IconAssets.Driverlicense),
         ),
         ProfileItem(
           text: "01/01/2025",
-          tittle: "تاريخ الميلاد",
+          tittle: birthday,
           icon: Image.asset(IconAssets.Calendar),
         ),
       ],

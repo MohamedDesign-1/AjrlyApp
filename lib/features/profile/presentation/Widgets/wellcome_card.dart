@@ -4,8 +4,9 @@ import 'package:ajrly/core/utils/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class WellcomeCard extends StatelessWidget {
-  const WellcomeCard({Key? key}) : super(key: key);
+class WelcomeCard extends StatelessWidget {
+  String wlcUserName;
+  WelcomeCard({super.key , required this.wlcUserName});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class WellcomeCard extends StatelessWidget {
                         style: getBoldStyle(color: ColorManager.black, fontSize: 24.sp),
                       ),
                       Text(
-                        'أحمد محمد أحمد محمود',
+                        wlcUserName,
                         style: getBoldStyle(color: ColorManager.primary, fontSize: 22.sp),
                       ),
                     ],
