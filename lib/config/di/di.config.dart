@@ -51,6 +51,18 @@ import '../../features/Home_Page/presentation/manager/get_all_ads_cubit.dart'
     as _i113;
 import '../../features/mainLayout/presentation/manager/main_layout_cubit.dart'
     as _i361;
+import '../../features/profile/data/data_sources/remote/get_profile_data_remote_data_source.dart'
+    as _i505;
+import '../../features/profile/data/data_sources/remote/impl/get_profile_data_remote_data_source_impl.dart'
+    as _i200;
+import '../../features/profile/data/repositories/get_profile_data_repository_impl.dart'
+    as _i861;
+import '../../features/profile/domain/repositories/get_profile_data_repository.dart'
+    as _i353;
+import '../../features/profile/domain/use_cases/get_profile_data_use_case.dart'
+    as _i238;
+import '../../features/profile/presentation/manager/profile_cubit.dart'
+    as _i735;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -65,8 +77,15 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i361.MainLayoutCubit>(() => _i361.MainLayoutCubit());
     gh.singleton<_i1057.ApiManager>(() => _i1057.ApiManager());
+    gh.factory<_i505.GetProfileDataRemoteDataSource>(() =>
+        _i200.GetProfileDataRemoteDataSourceImpl(
+            apiManager: gh<_i1057.ApiManager>()));
     gh.factory<_i424.RegisterRemoteDataSource>(() =>
         _i109.RegisterRemoteDataSourceImpl(apiManger: gh<_i1057.ApiManager>()));
+    gh.factory<_i353.GetProfileDataRepository>(() =>
+        _i861.GetProfileDataRepositoryImpl(
+            getProfileDataRemoteDataSource:
+                gh<_i505.GetProfileDataRemoteDataSource>()));
     gh.factory<_i628.RegisterRepository>(() => _i563.RegisterRepositoryImpl(
         registerRemoteDataSource: gh<_i424.RegisterRemoteDataSource>()));
     gh.factory<_i640.GetAllAdsRemoteDataSource>(() =>
@@ -78,6 +97,10 @@ extension GetItInjectableX on _i174.GetIt {
         loginRemoteDataSource: gh<_i1069.LoginRemoteDataSource>()));
     gh.factory<_i299.LoginUseCase>(
         () => _i299.LoginUseCase(loginRepository: gh<_i806.LoginRepository>()));
+    gh.factory<_i238.GetProfileDataUseCase>(() => _i238.GetProfileDataUseCase(
+        getProfileDataRepository: gh<_i353.GetProfileDataRepository>()));
+    gh.factory<_i735.ProfileCubit>(() => _i735.ProfileCubit(
+        getProfileDataUseCase: gh<_i238.GetProfileDataUseCase>()));
     gh.factory<_i784.GetAllAdsRepositories>(() =>
         _i802.GetAllAdsRepositoriesImpl(
             getAllAdsRemoteDataSource: gh<_i640.GetAllAdsRemoteDataSource>()));

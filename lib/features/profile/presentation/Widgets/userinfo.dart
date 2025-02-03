@@ -17,23 +17,23 @@ class Userinfo extends StatelessWidget {
       spacing: 12.h,
       children: [
         ProfileItem(
-          text: "user@gmail.com",
-          tittle: email,
+          text: email,
+          tittle: "البريد الالكتروني",
           icon: Image.asset(IconAssets.Email),
         ),
         ProfileItem(
-          text: "+201234567890",
-          tittle: phone,
+          text: phone,
+          tittle: "رقم الموبيل",
           icon: Image.asset(IconAssets.Phone_Call),
         ),
         ProfileItem(
-          text: "01234567890123",
-          tittle: id,
+          text: id,
+          tittle: "رقم البطاقة",
           icon: Image.asset(IconAssets.Driverlicense),
         ),
         ProfileItem(
-          text: "01/01/2025",
-          tittle: birthday,
+          text: birthday,
+          tittle: "تاريخ الميلاد",
           icon: Image.asset(IconAssets.Calendar),
         ),
       ],

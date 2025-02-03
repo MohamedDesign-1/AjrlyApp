@@ -5,4 +5,6 @@ class EndPoints {
   static const String register = '$baseUrl/authentication/register';
   // todo: Ads Api
   static const String advertisementsApi = '$baseUrl/ads';
+  //todo: Profile Api
+  static const String profileApi = '$baseUrl/users/profile';
 }
