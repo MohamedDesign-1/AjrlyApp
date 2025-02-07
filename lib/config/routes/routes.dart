@@ -9,6 +9,7 @@ class Routes {
   static const String favoriteRoute = '/favorite';
   static const String myBookingsRoute = '/myBookings';
   static const String addNewRentRoute = '/addNewRent';
+  static const String Notification = '/NotificationScreen';
 //client-Routs
   static const String client_profileRoute = '/Client_profile';
 //Admin-Routs

@@ -1,5 +1,6 @@
 import 'package:ajrly/config/routes/routes.dart';
 import 'package:ajrly/features/Home_Page/presentation/pages/homepage.dart';
+import 'package:ajrly/features/Notification/pages/notification.dart';
 import 'package:ajrly/features/auth/login_screen/presentation/pages/login_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -27,50 +28,49 @@ final getRouter = GoRouter(
     ),
     GoRoute(
       path: Routes.registerRoute,
-      builder: (context, state) =>
-          BlocProvider(
-            create: (context) => getIt<RegisterCubit>(),
-            lazy: false,
-            child: RegsiterScreen(),
-          ),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<RegisterCubit>(),
+        lazy: false,
+        child: RegsiterScreen(),
+      ),
     ),
     GoRoute(
       path: Routes.loginRoute,
-      builder: (context, state) =>
-          BlocProvider(
-            create: (context) => getIt<LoginCubit>(),
-            lazy: false,
-            child: LoginScreen(),
-          ),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<LoginCubit>(),
+        lazy: false,
+        child: LoginScreen(),
+      ),
     ),
     GoRoute(
       path: Routes.mainLayoutRoute,
-      builder: (context, state) =>
-          WillPopScope(
-            onWillPop: () async {
-              return false;
-            },
-            child: MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  lazy: false,
-                  create: (context) => getIt<MainLayoutCubit>(),
-                ),
-              ],
-              child: MainLayout(),
+      builder: (context, state) => WillPopScope(
+        onWillPop: () async {
+          return false;
+        },
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              lazy: false,
+              create: (context) => getIt<MainLayoutCubit>(),
             ),
-          ),
+          ],
+          child: MainLayout(),
+        ),
+      ),
     ),
     GoRoute(
       path: Routes.homeRoute,
-      builder: (context, state) =>
-          WillPopScope(
-            onWillPop: () async {
-              context.go(Routes.mainLayoutRoute);
-              return false;
-            },
-            child: Homepage(),
-          ),
+      builder: (context, state) => WillPopScope(
+        onWillPop: () async {
+          context.go(Routes.mainLayoutRoute);
+          return false;
+        },
+        child: Homepage(),
+      ),
     ),
+    GoRoute(
+        path: Routes.Notification,
+        builder: (context, state) => NotificationScreen()),
   ],
 );

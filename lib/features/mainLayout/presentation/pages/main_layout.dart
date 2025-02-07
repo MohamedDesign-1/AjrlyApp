@@ -1,8 +1,10 @@
+import 'package:ajrly/config/routes/routes.dart';
 import 'package:ajrly/core/utils/assets_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/utils/color_mananger.dart';
 import '../../../../core/utils/styles_manager.dart';
 import '../manager/main_layout_cubit.dart';
@@ -24,6 +26,7 @@ class MainLayout extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () {
+                          context.go(Routes.Notification);
                         },
                         child: Icon(
                           Icons.notifications_active,
