@@ -35,6 +35,7 @@ class ProfileScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
+                spacing: 16.h,
                 children: [
                   WelcomeCard(wlcUserName: data?.user?.fullName ?? "غير معروف"),
                   Userinfo(

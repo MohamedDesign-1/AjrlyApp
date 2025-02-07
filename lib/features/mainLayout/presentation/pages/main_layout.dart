@@ -18,10 +18,37 @@ class MainLayout extends StatelessWidget {
         return Scaffold(
           appBar: (mainLayoutCubit.currentIndex == 0)
               ? AppBar(
-                  title: Text(
-                    'مرحبا بك ^_^ ',
-                    style: getBoldStyle(
-                        color: ColorManager.white, fontSize: 18.sp),
+                  title: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                        },
+                        child: Icon(
+                          Icons.notifications_active,
+                          color: ColorManager.white,
+                          size: 28.sp,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'مرحبا بك',
+                            style: getBoldStyle(
+                                color: ColorManager.white, fontSize: 18.sp),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            'اسم المستخدم',
+                            style: getBoldStyle(
+                                color: ColorManager.white, fontSize: 20.sp),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   backgroundColor: ColorManager.primary,
                   toolbarHeight: 90.h,
