@@ -1,6 +1,5 @@
 import 'package:ajrly/config/routes/routes.dart';
 import 'package:ajrly/features/Home_Page/presentation/pages/homepage.dart';
-import 'package:ajrly/features/Notification/pages/notification.dart';
 import 'package:ajrly/features/auth/login_screen/presentation/pages/login_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +11,7 @@ import '../../features/auth/register_screen/presentation/manager/register_cubit.
 import '../../features/auth/register_screen/presentation/pages/regsiter_screen.dart';
 import '../../features/mainLayout/presentation/manager/main_layout_cubit.dart';
 import '../../features/mainLayout/presentation/pages/main_layout.dart';
+import '../../features/notification_screen/pages/notification.dart';
 import '../../features/splash_screen/presentation/pages/splash_screen.dart';
 import '../di/di.dart';
 

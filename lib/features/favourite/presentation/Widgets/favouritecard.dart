@@ -30,61 +30,64 @@ class Favouritecard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(right: 4, left: 4, top: 8, bottom: 8),
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
             child: SizedBox(
               height: 110.h,
               width: double.infinity,
               child: Row(
-                spacing: 4.w,
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      // Updated Row here with spaceBetween
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween, // Ensures space between items
-                        children: [
-                          Image(image: AssetImage(ImageAssets.Heart), height: 20.h, width: 20.w),
-                          DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: ColorManager.white,
-                              borderRadius: BorderRadius.circular(16.r),
-                            ),
-                            child: SizedBox(
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image(
+                              image: AssetImage(ImageAssets.Heart),
                               height: 20.h,
-                              width: 50.w,
-                              child: Text(
-                                car,
-                                style: getBoldStyle(color: ColorManager.primary, fontSize: 12.sp),
-                                textAlign: TextAlign.center,
+                              width: 20.w,
+                            ),
+                            DecoratedBox(
+                              decoration: BoxDecoration(
+                                color: ColorManager.white,
+                                borderRadius: BorderRadius.circular(16.r),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                                child: Text(
+                                  car,
+                                  style: getBoldStyle(color: ColorManager.primary, fontSize: 12.sp),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        carName,
-                        style: getBoldStyle(color: ColorManager.black, fontSize: 16.sp),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                        width: 60.w,
-                        child: DecoratedBox(
+                          ],
+                        ),
+
+                        Text(
+                          carName,
+                          style: getBoldStyle(color: ColorManager.black, fontSize: 16.sp),
+                        ),
+
+                        DecoratedBox(
                           decoration: BoxDecoration(
                             color: color ?? ColorManager.lightGreen,
                             borderRadius: BorderRadius.circular(16.r),
                           ),
-                          child: Text(
-                            bookingStatus ?? 'تم الحجز',
-                            style: getBoldStyle(color: ColorManager.black, fontSize: 11.sp),
-                            textAlign: TextAlign.center,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                            child: Text(
+                              bookingStatus ?? 'تم الحجز',
+                              style: getBoldStyle(color: ColorManager.black, fontSize: 11.sp),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   DecoratedBox(
                     decoration: BoxDecoration(
@@ -93,8 +96,9 @@ class Favouritecard extends StatelessWidget {
                     ),
                     child: Image(
                       image: AssetImage(ImageAssets.car),
-                      height: 120.h,
-                      width: 150.w,
+                      height: 100.h,
+                      width: 140.w,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ],
