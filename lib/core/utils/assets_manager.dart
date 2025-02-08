@@ -47,11 +47,12 @@ abstract class SvgAssets {
   static const String start = '${svgPath}start.svg';
   static const String email = '${svgPath}email.svg';
   static const String lock = '${svgPath}Lock.svg';
-  static const String user = '${svgPath}User.svg';
+  static const String user = '${svgPath}user.svg';
   static const String phone = '${svgPath}phone.svg';
   static const String driverLisence = '${svgPath}Driverlicense.svg';
   static const String calender = '${svgPath}Calendar.svg';
   static const String registrationlock = '${svgPath}registrationlock.svg';
+  static const String userfav = '${svgPath}Userfav.svg';
 
 }
 

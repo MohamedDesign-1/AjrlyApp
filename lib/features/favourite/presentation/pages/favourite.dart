@@ -16,18 +16,19 @@ class Favourite extends StatelessWidget {
         preferredSize: Size.fromHeight(90.h),
         child: CustomAppbar(title: 'مفضلاتي'),
       ),
-      body: FavouritecardList(),
-
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: NotHaveItems(
+              height: 120.h,
+              width: 120.w,
+              message: "المفضلة بتاعتك فاضية \n !دلوقتي",
+              image: Image.asset(ImageAssets.Heart),
+              color: ColorManager.black,
+              size: 24,
+              spacing: 14,
+            ) ??
+            FavouritecardList(),
+      ),
     );
   }
 }
-
-
-// body: NotHaveItems(
-//   height: 120.h,
-//   width: 120.w,
-//   message: "المفضلة بتاعتك فاضية \n !دلوقتي",
-//   image: Image.asset(ImageAssets.Heart),
-//   color: ColorManager.black,
-//   size: 24, spacing: 14,
-// ),

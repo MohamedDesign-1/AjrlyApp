@@ -23,6 +23,7 @@ class AdNewCard extends StatelessWidget {
         ),
         child: Stack(
           children: [
+
             SizedBox(
               height: 150.h,
               width: double.infinity,
@@ -42,7 +43,7 @@ class AdNewCard extends StatelessWidget {
                       aspectRatio: 16 / 9,
                       child: Image.network(
                         adData.images?.isNotEmpty ?? false
-                            ? adData.images![1]  // عرض الصورة الثانية من الصور
+                            ? adData.images![1] // عرض الصورة الثانية من الصور
                             : 'default_image_url',
                         fit: BoxFit.cover,
                       ),

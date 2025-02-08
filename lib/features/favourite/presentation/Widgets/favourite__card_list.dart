@@ -1,5 +1,6 @@
 import 'package:ajrly/features/favourite/presentation/Widgets/favouritecard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FavouritecardList extends StatelessWidget {
   const FavouritecardList({Key? key}) : super(key: key);
@@ -9,20 +10,14 @@ class FavouritecardList extends StatelessWidget {
     return ListView.builder(
       itemCount: 10,
       itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 16),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8, left: 8),
-                child: Favouritecard(
-                  price: "100",
-                  carName: "Toyota",
-                  car: "Corolla",
-                ),
-              ),
-            ],
-          ),
+        return Column(
+          children: [
+            Favouritecard(
+              carName: "نيسان صني للاجار",
+              car: "سيدان", seats: '4راكب', gear: 'مانوال', engine: 'بنزبن',
+            ),
+            SizedBox(height: 8.h),
+          ],
         );
       },
     );
