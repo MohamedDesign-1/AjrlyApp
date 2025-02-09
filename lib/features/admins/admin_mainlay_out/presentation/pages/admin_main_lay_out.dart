@@ -27,6 +27,7 @@ class AdminMainLayOut extends StatelessWidget {
               'لوحة الادمن',
               style: getBoldStyle(color: ColorManager.white, fontSize: 18.sp),
             ),
+            centerTitle: true,
             backgroundColor: ColorManager.primary,
             toolbarHeight: 90.h,
             shape: RoundedRectangleBorder(
@@ -65,6 +66,7 @@ class AdminMainLayOut extends StatelessWidget {
                     SvgAssets.userfav,
                     height: 24.h,
                     width: 24.w,
+                    color: ColorManager.white,
                   ),
                 ),
                 label: 'المستخدمين',
@@ -96,7 +98,7 @@ class AdminMainLayOut extends StatelessWidget {
               ),
             ],
             selectedItemColor: ColorManager.white,
-            unselectedItemColor: ColorManager.gray,
+            unselectedItemColor: ColorManager.white,
             showUnselectedLabels: true, // Show labels for unselected items
             backgroundColor: ColorManager.primary,
             elevation: 0,

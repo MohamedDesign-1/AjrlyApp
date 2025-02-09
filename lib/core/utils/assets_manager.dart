@@ -16,6 +16,7 @@ abstract class ImageAssets {
   static const String EnterImage = '${imagesPath}Frame 128.png';
   static const String Heart = '${imagesPath}Heart@2x.png';
   static const String No_Tasks = '${imagesPath}No task.png';
+  static const String admin = '${imagesPath}admin.png';
 }
 
 abstract class IconAssets {

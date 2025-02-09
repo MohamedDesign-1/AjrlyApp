@@ -128,7 +128,7 @@ class MainLayout extends StatelessWidget {
               ),
             ],
             selectedItemColor: ColorManager.white,
-            unselectedItemColor: ColorManager.gray,
+            unselectedItemColor: ColorManager.white,
             showUnselectedLabels: true,
             backgroundColor: ColorManager.primary,
             elevation: 0,
