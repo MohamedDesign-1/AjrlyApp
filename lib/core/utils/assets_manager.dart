@@ -53,6 +53,8 @@ abstract class SvgAssets {
   static const String calender = '${svgPath}Calendar.svg';
   static const String registrationlock = '${svgPath}registrationlock.svg';
   static const String userfav = '${svgPath}Userfav.svg';
+  static const String logout = '${svgPath}logout.svg';
+  static const String ads = '${svgPath}ads.svg';
 
 }
 

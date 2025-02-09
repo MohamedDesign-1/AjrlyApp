@@ -1,6 +1,10 @@
 import 'package:ajrly/config/routes/routes.dart';
 import 'package:ajrly/features/Home_Page/presentation/pages/homepage.dart';
+import 'package:ajrly/features/admins/admin_ads_control/presentation/pages/admin_ads_control.dart';
 import 'package:ajrly/features/admins/admin_home_page/presentation/pages/admin_home_page.dart';
+import 'package:ajrly/features/admins/admin_mainlay_out/presentation/manager/admin_main_lay_out_cubit.dart';
+import 'package:ajrly/features/admins/admin_mainlay_out/presentation/pages/admin_main_lay_out.dart';
+import 'package:ajrly/features/admins/admin_user_control/presentation/pages/admin_user_control.dart';
 import 'package:ajrly/features/auth/login_screen/presentation/pages/login_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -76,10 +80,28 @@ final getRouter = GoRouter(
     ),
 
     //todo: Admin Routes
+    GoRoute(
+        path: Routes.Admin_MainLayoutRoute,
+        builder: (context, state) => BlocProvider(
+        create: (context) => getIt<AdminMainLayOutCubit>(),
+        lazy: false,
+        child: AdminMainLayOut(),
+)
+    ),
 
     GoRoute(
         path: Routes.Admin_HomePage,
         builder: (context, state) => AdminHomePage()
+    ),
+
+    GoRoute(
+        path: Routes.Ads_ControlRoute,
+        builder: (context, state) => AdminAdsControl()
+    ),
+
+    GoRoute(
+        path: Routes.Users_ControlRoute,
+        builder: (context, state) => AdminUserControl()
     ),
 
   ],

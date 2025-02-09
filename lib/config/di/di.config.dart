@@ -13,6 +13,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../../core/api/api_manager.dart' as _i1057;
+import '../../features/admins/admin_mainlay_out/presentation/manager/admin_main_lay_out_cubit.dart'
+    as _i692;
 import '../../features/auth/login_screen/data/data_sources/remote/impl/login_reomte_data_source_impl.dart'
     as _i508;
 import '../../features/auth/login_screen/data/data_sources/remote/login_remote_data_source.dart'
@@ -76,6 +78,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     gh.factory<_i361.MainLayoutCubit>(() => _i361.MainLayoutCubit());
+    gh.factory<_i692.AdminMainLayOutCubit>(() => _i692.AdminMainLayOutCubit());
     gh.singleton<_i1057.ApiManager>(() => _i1057.ApiManager());
     gh.factory<_i505.GetProfileDataRemoteDataSource>(() =>
         _i200.GetProfileDataRemoteDataSourceImpl(

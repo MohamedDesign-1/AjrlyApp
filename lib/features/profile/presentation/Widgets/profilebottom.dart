@@ -36,7 +36,8 @@ class Profilebottom extends StatelessWidget {
               height: 50,
               radius: 4,
               fontcolor: ColorManager.white,
-              showicon: false),
+              showicon: false
+          ),
         ),
         CustomButton(
             title: "تسجيل الخروج",

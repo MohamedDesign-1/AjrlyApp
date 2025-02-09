@@ -13,6 +13,7 @@ class Routes {
 //client-Routs
   static const String client_profileRoute = '/Client_profile';
 //Admin-Routs
+  static const String Admin_MainLayoutRoute = '/Admin_MainLayoutRoute';
   static const String Admin_HomePage = '/Admin_HomePage';
   static const String Users_ControlRoute = '/Users_Control';
   static const String Ads_ControlRoute = '/Ads_Control';

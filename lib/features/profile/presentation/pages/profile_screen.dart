@@ -27,7 +27,6 @@ class ProfileScreen extends StatelessWidget {
         if (state is ProfileSuccess) {
           data = state.userProfileData;
         }
-
         return Scaffold(
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(90.h),
@@ -49,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                   Profilebottom(
                     adminOnTap: () {
                      if (data?.user?.role == "admin") {
-                       context.go(Routes.Admin_HomePage);
+                       context.go(Routes.Admin_MainLayoutRoute);
                      }
                     },
                     showAdminButton: data?.user?.role == "admin",
