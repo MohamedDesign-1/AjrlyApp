@@ -1,3 +1,4 @@
+import 'package:ajrly/config/routes/routes.dart';
 import 'package:ajrly/core/components/custom_appbar.dart';
 import 'package:ajrly/features/profile/domain/entities/get_profile_data_entity.dart';
 import 'package:ajrly/features/profile/presentation/Widgets/profilebottom.dart';
@@ -8,6 +9,7 @@ import 'package:ajrly/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../config/di/di.dart';
 
@@ -44,7 +46,14 @@ class ProfileScreen extends StatelessWidget {
                     email: data?.user?.email ?? "",
                     id: data?.user?.nationalId ?? "",
                   ),
-                  Profilebottom(),
+                  Profilebottom(
+                    adminOnTap: () {
+                     if (data?.user?.role == "admin") {
+                       context.go(Routes.Admin_HomePage);
+                     }
+                    },
+                    showAdminButton: data?.user?.role == "admin",
+                  ),
                 ],
               ),
             ),

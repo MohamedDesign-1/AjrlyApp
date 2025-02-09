@@ -1,5 +1,6 @@
 import 'package:ajrly/config/routes/routes.dart';
 import 'package:ajrly/features/Home_Page/presentation/pages/homepage.dart';
+import 'package:ajrly/features/admins/admin_home_page/presentation/pages/admin_home_page.dart';
 import 'package:ajrly/features/auth/login_screen/presentation/pages/login_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -71,6 +72,15 @@ final getRouter = GoRouter(
     ),
     GoRoute(
         path: Routes.Notification,
-        builder: (context, state) => NotificationScreen()),
+        builder: (context, state) => NotificationScreen()
+    ),
+
+    //todo: Admin Routes
+
+    GoRoute(
+        path: Routes.Admin_HomePage,
+        builder: (context, state) => AdminHomePage()
+    ),
+
   ],
 );

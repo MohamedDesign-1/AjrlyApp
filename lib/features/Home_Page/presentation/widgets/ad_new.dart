@@ -178,7 +178,7 @@ class AdNew extends StatelessWidget {
                                                 ),
                                                 SizedBox(width: 4.w),
                                                 SvgPicture.asset(
-                                                  SvgAssets.user2,
+                                                  SvgAssets.userfav,
                                                   height: 16.h,
                                                   color: ColorManager.primary,
                                                 ),

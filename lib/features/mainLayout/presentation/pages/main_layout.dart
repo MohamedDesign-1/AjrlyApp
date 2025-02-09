@@ -118,7 +118,7 @@ class MainLayout extends StatelessWidget {
                 icon: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SvgPicture.asset(
-                    SvgAssets.user2,
+                    SvgAssets.userfav,
                     height: 24.h,
                     width: 24.w,
                     color: ColorManager.white,
