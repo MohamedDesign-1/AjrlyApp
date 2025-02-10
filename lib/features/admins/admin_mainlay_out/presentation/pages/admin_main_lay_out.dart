@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../config/routes/routes.dart';
 import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/color_mananger.dart';
 import '../../../../../core/utils/styles_manager.dart';
@@ -14,18 +15,24 @@ class AdminMainLayOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // BlocBuilder listens to state changes and updates the UI
     return BlocBuilder<AdminMainLayOutCubit, AdminMainLayOutState>(
       builder: (context, state) {
         final adminMainLayoutCubit = context.read<AdminMainLayOutCubit>();
-
         return Scaffold(
-          // Dynamic AppBar based on the selected index
           appBar: (adminMainLayoutCubit.currentIndex == 0)
               ? AppBar(
             title: Text(
               'لوحة الادمن',
               style: getBoldStyle(color: ColorManager.white, fontSize: 18.sp),
+            ),
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: ColorManager.white,
+              ),
+              onPressed: () {
+                context.go(Routes.mainLayoutRoute);
+              },
             ),
             centerTitle: true,
             backgroundColor: ColorManager.primary,
@@ -36,17 +43,16 @@ class AdminMainLayOut extends StatelessWidget {
               ),
             ),
           )
-              : null, // If index is not 0, hide the AppBar
+              : null,
           body: state is AdminMainLayOutLoaded
-              ? state.screens[adminMainLayoutCubit.currentIndex] // Show screen if loaded
-              : const SizedBox.shrink(), // No loading indicator, just empty space
+              ? state.screens[adminMainLayoutCubit.currentIndex]
+              : AdminMainLayOut(),
           bottomNavigationBar: BottomNavigationBar(
             selectedLabelStyle: getBoldStyle(color: ColorManager.white, fontSize: 12.sp),
             unselectedLabelStyle: getBoldStyle(color: ColorManager.white, fontSize: 12.sp),
             currentIndex: adminMainLayoutCubit.currentIndex,
             onTap: adminMainLayoutCubit.changeIndex, // Update index on tap
             items: [
-              // Home screen tab
               BottomNavigationBarItem(
                 icon: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -58,7 +64,6 @@ class AdminMainLayOut extends StatelessWidget {
                 ),
                 label: 'الرئيسية',
               ),
-              // Users screen tab
               BottomNavigationBarItem(
                 icon: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -71,7 +76,6 @@ class AdminMainLayOut extends StatelessWidget {
                 ),
                 label: 'المستخدمين',
               ),
-              // Ads screen tab
               BottomNavigationBarItem(
                 icon: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -83,7 +87,6 @@ class AdminMainLayOut extends StatelessWidget {
                 ),
                 label: 'الاعلانات',
               ),
-              // Logout tab
               BottomNavigationBarItem(
                 icon: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -99,10 +102,10 @@ class AdminMainLayOut extends StatelessWidget {
             ],
             selectedItemColor: ColorManager.white,
             unselectedItemColor: ColorManager.white,
-            showUnselectedLabels: true, // Show labels for unselected items
+            showUnselectedLabels: true,
             backgroundColor: ColorManager.primary,
             elevation: 0,
-            type: BottomNavigationBarType.fixed, // Fixed item layout
+            type: BottomNavigationBarType.fixed,
           ),
         );
       },

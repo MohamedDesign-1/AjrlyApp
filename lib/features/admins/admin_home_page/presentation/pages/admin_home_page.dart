@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ajrly/features/admins/admin_home_page/presentation/widgets/admin_card_user_or_ad.dart';
 import 'package:ajrly/features/admins/admin_home_page/presentation/widgets/welcome_admin_banner.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../config/routes/routes.dart';
 import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/color_mananger.dart';
 import '../../../../../core/utils/styles_manager.dart';
@@ -27,10 +29,13 @@ class AdminHomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AdminCardUserOrAd(
+                      onTap: () => context.go(Routes.Users_ControlRoute),
                       iconName: SvgAssets.userfav,
                       sectionName: "ادارة المستخدمين"),
                   AdminCardUserOrAd(
-                      iconName: SvgAssets.ads, sectionName: "ادارة الاعلانات"),
+                      onTap: () => context.go(Routes.Ads_ControlRoute),
+                      iconName: SvgAssets.ads,
+                      sectionName: "ادارة الاعلانات"),
                 ],
               ),
               SizedBox(height: 16.h),

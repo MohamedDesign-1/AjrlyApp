@@ -11,7 +11,9 @@ part 'admin_main_lay_out_state.dart';
 
 @injectable
 class AdminMainLayOutCubit extends Cubit<AdminMainLayOutState> {
-  AdminMainLayOutCubit() : super(AdminMainLayOutInitial());
+  AdminMainLayOutCubit() : super(AdminMainLayOutInitial()){
+    loadInitialData();
+  }
 
   int currentIndex = 0;
 
