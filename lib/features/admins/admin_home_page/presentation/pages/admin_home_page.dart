@@ -181,24 +181,26 @@ class AdminHomePage extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        spacing: 8.w,
                         children: [
                           CustomButton(
                               onTap: () {},
                               title: "رفض",
                               color: ColorManager.red,
                               outlineColor: ColorManager.red,
-                              width: 150.w,
-                              height: 60.h,
+                              width: 120.w,
+                              height: 50.h,
                               radius: 8.r,
                               fontcolor: ColorManager.white,
                                             ),
+
                           CustomButton(
                             onTap: () {},
                             title: "قبول",
                             color: ColorManager.green,
                             outlineColor: ColorManager.green,
-                            width: 150.w,
-                            height: 60.h,
+                            width: 120.w,
+                            height: 50.h,
                             radius: 8.r,
                             fontcolor: ColorManager.white,
                           ),
