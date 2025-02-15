@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ScooterIterm extends StatelessWidget {
-  const ScooterIterm({Key? key}) : super(key: key);
+  const ScooterIterm({super.key});
 
   @override
   Widget build(BuildContext context) {

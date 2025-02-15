@@ -4,12 +4,11 @@ import 'package:ajrly/core/utils/color_mananger.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
 import 'package:ajrly/features/add_ad/presentation/Widgets/add__image.dart';
 import 'package:ajrly/features/add_ad/presentation/Widgets/car_item.dart';
-import 'package:ajrly/features/add_ad/presentation/Widgets/scooter_iterm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddAdScreen extends StatelessWidget {
-  const AddAdScreen({Key? key}) : super(key: key);
+  const AddAdScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
