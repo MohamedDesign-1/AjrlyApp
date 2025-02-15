@@ -66,6 +66,7 @@ dependencies:
   firebase_messaging: ^15.2.0
   smooth_page_indicator: ^1.2.0+3
   flutter_localization: ^0.3.0
+  radio_group_v2: ^3.3.0
 
 
 dev_dependencies:

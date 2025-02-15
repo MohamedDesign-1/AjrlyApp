@@ -12,9 +12,9 @@ class Assets {
   static const String iconsPen = 'assets/icons/Pen.png';
   static const String iconsPhonecall = 'assets/icons/Phone call.png';
   static const String iconsUser = 'assets/icons/user.png';
+  static const String imagesAddImage = 'assets/images/add_image.png';
   static const String imagesCar = 'assets/images/car.png';
   static const String imagesCar2 = 'assets/images/car2.png';
-  static const String imagesFrame128 = 'assets/images/Frame 128.png';
   static const String imagesHeart2x = 'assets/images/Heart@2x.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesNotask = 'assets/images/No task.png';
@@ -40,5 +40,6 @@ class Assets {
   static const String svgScooter = 'assets/svg/Scooter.svg';
   static const String svgStart = 'assets/svg/start.svg';
   static const String svgText = 'assets/svg/text.svg';
+  static const String svgUserfav = 'assets/svg/Userfav.svg';
 
 }
