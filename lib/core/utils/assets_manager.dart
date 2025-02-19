@@ -58,7 +58,7 @@ abstract class SvgAssets {
   static const String ads = '${svgPath}ads.svg';
   static const String activeUsers = '${svgPath}active_user.svg';
   static const String deActiveUsers = '${svgPath}deactive_user.svg';
-  static const String totalUsers = '${svgPath}total_user.svg';
+  static const String totalUsers = '${svgPath}total_users.svg';
   static const String downloadPdf = '${svgPath}pdf.svg';
   static const String price = '${svgPath}egyptian.svg';
   static const String pen = '${svgPath}Pen.svg';
