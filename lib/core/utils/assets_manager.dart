@@ -65,6 +65,9 @@ abstract class SvgAssets {
   static const String caricon = '${svgPath}Sports_car.svg';
   static const String meter = '${svgPath}Speedometer.svg';
   static const String scootericon = '${svgPath}Vespa.svg';
+  static const String locate = '${svgPath}locate.svg';
+  static const String time = '${svgPath}Timetable.svg';
+  static const String clock = '${svgPath}Clock.svg';
 
 }
 

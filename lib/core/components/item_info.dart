@@ -14,7 +14,9 @@ class ItemInfofav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        icon,
+        SizedBox(child: icon,
+        height: 20.h,
+        width: 20.w,) ,
         Text(
           title,
           style: getBoldStyle(color: ColorManager.black, fontSize: 8.sp),

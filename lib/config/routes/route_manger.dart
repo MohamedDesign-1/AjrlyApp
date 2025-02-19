@@ -6,6 +6,8 @@ import 'package:ajrly/features/admins/admin_mainlay_out/presentation/manager/adm
 import 'package:ajrly/features/admins/admin_mainlay_out/presentation/pages/admin_main_lay_out.dart';
 import 'package:ajrly/features/admins/admin_user_control/presentation/pages/admin_user_control.dart';
 import 'package:ajrly/features/auth/login_screen/presentation/pages/login_screen.dart';
+import 'package:ajrly/features/booking/presentation/pages/booking_info.dart';
+import 'package:ajrly/features/booking/presentation/pages/booking_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
@@ -103,6 +105,13 @@ final getRouter = GoRouter(
         path: Routes.Users_ControlRoute,
         builder: (context, state) => AdminUserControl()
     ),
-
+    GoRoute(
+        path: Routes.BookingInfo,
+        builder: (context, state) => BookingInfo()
+    ),
+    GoRoute(
+        path: Routes.myBookingsRoute,
+        builder: (context, state) => BookingScreen()
+    ),
   ],
 );

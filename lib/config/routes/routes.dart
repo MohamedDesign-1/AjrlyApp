@@ -7,9 +7,10 @@ class Routes {
   static const String registerRoute = '/RegisterScreen';
   static const String homeRoute = '/home';
   static const String favoriteRoute = '/favorite';
-  static const String myBookingsRoute = '/myBookings';
+  static const String myBookingsRoute = '/BookingScreen';
   static const String addNewRentRoute = '/addNewRent';
   static const String Notification = '/NotificationScreen';
+  static const String BookingInfo = '/BookingInfo';
 //client-Routs
   static const String client_profileRoute = '/Client_profile';
 //Admin-Routs

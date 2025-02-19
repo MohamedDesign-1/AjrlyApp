@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Favouritecard extends StatelessWidget {
+class BookingInfo_card extends StatelessWidget {
   final Color? color;
   final String carName;
   final String car;
@@ -15,7 +15,7 @@ class Favouritecard extends StatelessWidget {
   final String gear;
   final String engine;
 
-  Favouritecard({
+  BookingInfo_card({
     Key? key,
     this.color,
     required this.carName,
@@ -53,6 +53,7 @@ class Favouritecard extends StatelessWidget {
                           children: [
                             Image(
                               image: AssetImage(ImageAssets.Heart),
+                              color: ColorManager.transparent,
                               height: 20.h,
                               width: 20.w,
                             ),

@@ -19,12 +19,12 @@ class BookingScreen extends StatelessWidget {
       body:
       Padding(
         padding: const EdgeInsets.all(12),
-        child:      NotHaveItems(
+        child:     BookingItemsList()??   NotHaveItems(
           message: "مفيش حجوزات عندك \n دلوقتي",
           image: Image.asset(ImageAssets.No_Tasks),
           color: ColorManager.black,
           size: 24, spacing: 14,
-        )?? BookingItemsList(),
+        ),
       ),
     );
   }
