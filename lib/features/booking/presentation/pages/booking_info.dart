@@ -25,7 +25,7 @@ class BookingInfo extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  context.go(Routes.myBookingsRoute);
+                  context.go(Routes.mainLayoutRoute);
                 },
                 child: Icon(
                   Icons.arrow_back_ios,

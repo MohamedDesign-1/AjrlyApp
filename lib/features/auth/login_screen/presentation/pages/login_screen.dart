@@ -17,14 +17,13 @@ import '../../../../../config/routes/routes.dart';
 import '../../../../../core/components/custom_buttomn.dart';
 
 class LoginScreen extends StatelessWidget {
-  final LoginCubit loginCubit = getIt<LoginCubit>();
 
   LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
-      bloc: loginCubit,
+      bloc: LoginCubit.get(context),
       listener: (context, state) {
         if (state is LoginSuccessState) {
           ToastUtils.showSuccessToast(context,
@@ -57,7 +56,7 @@ class LoginScreen extends StatelessWidget {
           padding: EdgeInsets.all(16.0.w),
           child: SingleChildScrollView(
             child: Form(
-              key: loginCubit.formKey,
+              key: LoginCubit.get(context).formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -85,7 +84,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16.h),
                   CustomTextFiled(
-                    controller: loginCubit.emailController,
+                    controller: LoginCubit.get(context).emailController,
                     hintText: '   ادخــل الــبريـد الالــكــتروني',
                     borderRadius: BorderRadius.circular(4.r),
                     suffixIcon: Padding(
@@ -109,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16.h),
                   CustomPasswordFiled(
-                    controller: loginCubit.passwordController,
+                    controller: LoginCubit.get(context).passwordController,
                     hintText: '   ادخــل كـــلمة الـــمرور',
                     borderRadius: BorderRadius.circular(4),
                     validator: AppValidators.validatePassword,
@@ -140,7 +139,7 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: 32.h),
                   CustomButton(
                     onTap: () {
-                      loginCubit.login();
+                      LoginCubit.get(context).login();
                     },
                     title: 'تسجيل الدخول',
                     color: ColorManager.primary,

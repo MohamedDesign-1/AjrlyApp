@@ -77,8 +77,8 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i361.MainLayoutCubit>(() => _i361.MainLayoutCubit());
     gh.factory<_i692.AdminMainLayOutCubit>(() => _i692.AdminMainLayOutCubit());
+    gh.factory<_i361.MainLayoutCubit>(() => _i361.MainLayoutCubit());
     gh.singleton<_i1057.ApiManager>(() => _i1057.ApiManager());
     gh.factory<_i505.GetProfileDataRemoteDataSource>(() =>
         _i200.GetProfileDataRemoteDataSourceImpl(

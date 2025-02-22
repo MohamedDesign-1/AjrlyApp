@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
@@ -15,6 +16,8 @@ class LoginCubit extends Cubit<LoginState> {
   var formKey = GlobalKey<FormState>();
   var emailController = TextEditingController(text: 'mohamed25@gmail.com');
   var passwordController = TextEditingController(text: '12345678Mm');
+
+  static LoginCubit get(context) => BlocProvider.of(context);
 
   LoginUseCase loginUseCase;
 
