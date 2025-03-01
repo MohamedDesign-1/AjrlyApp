@@ -2,7 +2,9 @@ import 'package:ajrly/core/components/custom_botton.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
 import 'package:ajrly/features/booking/presentation/Widgets/booking_details.dart';
 import 'package:ajrly/features/booking/presentation/Widgets/booking_info.dart';
+import 'package:ajrly/features/mainLayout/presentation/manager/main_layout_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,9 +26,11 @@ class BookingInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () {
-                  context.go(Routes.mainLayoutRoute);
-                },
+          onTap: () {
+            context.read<MainLayoutCubit>().changeIndex(2);
+            context.go(Routes.mainLayoutRoute, extra: <String, dynamic>{'index': 2});
+        },
+
                 child: Icon(
                   Icons.arrow_back_ios,
                   color: ColorManager.white,
