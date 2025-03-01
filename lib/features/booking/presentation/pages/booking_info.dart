@@ -90,7 +90,32 @@ class BookingInfo extends StatelessWidget {
                     CustomBotton(
                       text: "إلغاء الحجز",
                       color: ColorManager.red,
-                      onTap: () {},
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('تأكيد الإلغاء'),
+                              content: Text('هل أنت متأكد أنك تريد إلغاء الحجز؟'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('لا'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    // Add your cancellation logic here
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('نعم'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
                       width: 250.w,
                     ),
                   ],
