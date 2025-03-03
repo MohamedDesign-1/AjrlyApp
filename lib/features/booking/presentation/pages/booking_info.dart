@@ -2,13 +2,12 @@ import 'package:ajrly/core/components/custom_botton.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
 import 'package:ajrly/features/booking/presentation/Widgets/booking_details.dart';
 import 'package:ajrly/features/booking/presentation/Widgets/booking_info.dart';
-import 'package:ajrly/features/mainLayout/presentation/manager/main_layout_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../config/routes/routes.dart';
+import '../../../../core/components/custom_all_screens_appbar.dart';
 import '../../../../core/utils/color_mananger.dart';
 
 class BookingInfo extends StatelessWidget {
@@ -18,31 +17,8 @@ class BookingInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.square(90),
-        child: AppBar(
-          backgroundColor: ColorManager.primary,
-          title: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-          onTap: () {
-            context.read<MainLayoutCubit>().changeIndex(2);
-            context.go(Routes.mainLayoutRoute, extra: <String, dynamic>{'index': 2});
-        },
-
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: ColorManager.white,
-                ),
-              ),
-              Text(
-                'تفاصيل الحجز',
-                style: getBoldStyle(color: ColorManager.white, fontSize: 16.sp),
-              ),
-            ],
-          ),
-        ),
+        preferredSize: Size.fromHeight(90.h),
+        child: CustomAppbarAllScreens(title: 'تفاصيل الحجز'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -95,23 +71,57 @@ class BookingInfo extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Text('تأكيد الإلغاء'),
-                              content: Text('هل أنت متأكد أنك تريد إلغاء الحجز؟'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('لا'),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    // Add your cancellation logic here
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('نعم'),
-                                ),
-                              ],
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Text(
+                                    "تاكيد الغاء الحجز",
+                                    style: getBoldStyle(
+                                        color: ColorManager.red, fontSize: 24),
+                                  ),
+                                  Text(
+                                    "هل انت متاكد انك تريد الغاء هذا الحجز؟",
+                                    style: getBoldStyle(
+                                        color: ColorManager.black,
+                                        fontSize: 20),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Text(
+                                    "قد يتم فرض 20% رسوم الغاء وفقا لسياساتنا",
+                                    style: getBoldStyle(
+                                        color: ColorManager.black,
+                                        fontSize: 18),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      TextButton(
+                                        onPressed: () {
+                                          context.go(Routes.mainLayoutRoute);
+                                        },
+                                        child: Text(
+                                          "الغاء الحجز",
+                                          style: getBoldStyle(
+                                              color: ColorManager.red,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          context.go(Routes.BookingInfo);
+                                        },
+                                        child: Text(
+                                          "احتفظ بالحجز",
+                                          style: getBoldStyle(
+                                              color: ColorManager.green,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             );
                           },
                         );
