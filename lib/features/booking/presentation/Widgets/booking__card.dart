@@ -13,7 +13,15 @@ class BookingCard extends StatelessWidget {
   final String carName;
   final String car;
   final String? bookingStatus;
-  const BookingCard({super.key, this.color, required this.price, required this.carName, required this.car, this.bookingStatus});
+
+  const BookingCard({
+    super.key,
+    this.color,
+    required this.price,
+    required this.carName,
+    required this.car,
+    this.bookingStatus,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,99 +29,96 @@ class BookingCard extends StatelessWidget {
       onTap: () {
         context.go(Routes.BookingInfo);
       },
-      child: Stack(
-        children: [
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: ColorManager.lightGrey,
-              borderRadius: BorderRadius.circular(16.r),
+      child: Container(
+        padding: EdgeInsets.all(8.w),
+        decoration: BoxDecoration(
+          color: ColorManager.lightGrey,
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  "جنية",
+                  style: getSemiBoldStyle(
+                      color: ColorManager.primary, fontSize: 12.sp),
+                ),
+                Text(
+                  price,
+                  style:
+                      getBoldStyle(color: ColorManager.black, fontSize: 16.sp),
+                ),
+              ],
             ),
-            child: Padding(
-              padding: const EdgeInsets.only(right: 4, left: 4, top: 8, bottom: 8),
-              child: SizedBox(
-                height: 110.h,
-                width: double.infinity,
-                child: Row(
-                  spacing: 4.w,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "جنية",
-                          style: getBoldStyle(color: ColorManager.primary, fontSize: 10.sp),
-                        ),
-                        Text(
-                          price,
-                          style: getBoldStyle(color: ColorManager.black, fontSize: 12.sp),
-                        ),
-                      ],
+            SizedBox(width: 8.w),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 20.h,
+                    width: 50.w,
+                    decoration: BoxDecoration(
+                      color: ColorManager.white,
+                      borderRadius: BorderRadius.circular(16.r),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            DecoratedBox(
-                              decoration: BoxDecoration(
-                                color: ColorManager.white,
-                                borderRadius: BorderRadius.circular(16.r),
-                              ),
-                              child: SizedBox(
-                                height: 20.h,
-                                width: 50.w,
-                                child: Text(
-                                  car,
-                                  style: getBoldStyle(color: ColorManager.primary, fontSize: 12.sp),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              carName,
-                              style: getBoldStyle(color: ColorManager.black, fontSize: 16.sp),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                          width: 60.w,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: color ?? ColorManager.lightGreen,
-                              borderRadius: BorderRadius.circular(16.r),
-                            ),
-                            child: Text(
-                              bookingStatus ??
-                              'تم الحجز',
-                              style: getBoldStyle(color: ColorManager.black, fontSize: 11.sp),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ],
+                    alignment: Alignment.center,
+                    child: Text(
+                      car,
+                      style: getBoldStyle(
+                          color: ColorManager.primary, fontSize: 12.sp),
+                      textAlign: TextAlign.center,
                     ),
-                    DecoratedBox(
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    carName,
+                    style: getBoldStyle(
+                        color: ColorManager.black, fontSize: 16.sp),
+                    textAlign: TextAlign.right,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  if (bookingStatus != null) ...[
+                    SizedBox(height: 4.h),
+                    Container(
+                      height: 20.h,
+                      width: 60.w,
                       decoration: BoxDecoration(
-                        color: ColorManager.white,
+                        color: color ?? ColorManager.lightGreen,
                         borderRadius: BorderRadius.circular(16.r),
                       ),
-                      child: Image(
-                        image: AssetImage(ImageAssets.car),
-                        height: 120.h,
-                        width: 150.w,
+                      alignment: Alignment.center,
+                      child: Text(
+                        bookingStatus!,
+                        style: getBoldStyle(
+                            color: ColorManager.black, fontSize: 11.sp),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
-                ),
+                ],
               ),
             ),
-          ),
-        ],
+            SizedBox(width: 8.w),
+            Container(
+              decoration: BoxDecoration(
+                color: ColorManager.white,
+                borderRadius: BorderRadius.circular(16.r),
+              ),
+              child: Image.asset(
+                ImageAssets.car,
+                height: 100.h,
+                width: 100.w,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

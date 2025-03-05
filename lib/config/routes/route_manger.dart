@@ -6,6 +6,7 @@ import 'package:ajrly/features/admins/admin_mainlay_out/presentation/manager/adm
 import 'package:ajrly/features/admins/admin_mainlay_out/presentation/pages/admin_main_lay_out.dart';
 import 'package:ajrly/features/admins/admin_user_control/presentation/pages/admin_user_control.dart';
 import 'package:ajrly/features/auth/login_screen/presentation/pages/login_screen.dart';
+import 'package:ajrly/features/booking/presentation/Manager/booking_cubit.dart';
 import 'package:ajrly/features/booking/presentation/pages/booking_info.dart';
 import 'package:ajrly/features/booking/presentation/pages/booking_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,6 +62,10 @@ final getRouter = GoRouter(
               lazy: false,
               create: (context) => getIt<MainLayoutCubit>(),
             ),
+            BlocProvider(
+              lazy: false,
+              create: (context) => getIt<BookingCubit>(),
+            ),
           ],
           child: MainLayout(),
         ),
@@ -88,7 +93,7 @@ final getRouter = GoRouter(
         create: (context) => getIt<AdminMainLayOutCubit>(),
         lazy: false,
         child: AdminMainLayOut(),
-)
+      )
     ),
 
     GoRoute(
@@ -110,8 +115,11 @@ final getRouter = GoRouter(
         builder: (context, state) => BookingInfo()
     ),
     GoRoute(
-        path: Routes.myBookingsRoute,
-        builder: (context, state) => BookingScreen()
+      path: Routes.myBookingsRoute,
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<BookingCubit>(),
+        child: BookingScreen(),
+      ),
     ),
   ],
 );

@@ -7,4 +7,6 @@ class EndPoints {
   static const String advertisementsApi = '$baseUrl/ads';
   //todo: Profile Api
   static const String profileApi = '$baseUrl/users/profile';
+  //todo: Booking Api
+  static const String bookingApi = '$baseUrl/bookings';
 }

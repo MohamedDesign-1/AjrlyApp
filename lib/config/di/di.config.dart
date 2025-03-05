@@ -39,6 +39,24 @@ import '../../features/auth/register_screen/domain/use_cases/register_use_case.d
     as _i359;
 import '../../features/auth/register_screen/presentation/manager/register_cubit.dart'
     as _i593;
+import '../../features/booking/data/data_sources/remote_data_source/booking_remote_data_source.dart'
+    as _i428;
+import '../../features/booking/data/data_sources/remote_data_source/impl/booking_remote_data_source_impl.dart'
+    as _i829;
+import '../../features/booking/data/repositories/booking_repositories_impl.dart'
+    as _i486;
+import '../../features/booking/domain/repositories/booking_repositoris.dart'
+    as _i397;
+import '../../features/booking/domain/use_cases/cancel_booking_usecase.dart'
+    as _i124;
+import '../../features/booking/domain/use_cases/get_booking_ads_usecase.dart'
+    as _i774;
+import '../../features/booking/domain/use_cases/get_booking_details_usecase.dart'
+    as _i369;
+import '../../features/booking/domain/use_cases/post_booking_usecase.dart'
+    as _i593;
+import '../../features/booking/presentation/Manager/booking_cubit.dart'
+    as _i403;
 import '../../features/Home_Page/data/data_sources/remote/get_all_ads_remote_data_source.dart'
     as _i640;
 import '../../features/Home_Page/data/data_sources/remote/impl/get_all_ads_remote_data_source_impl.dart'
@@ -85,6 +103,8 @@ extension GetItInjectableX on _i174.GetIt {
             apiManager: gh<_i1057.ApiManager>()));
     gh.factory<_i424.RegisterRemoteDataSource>(() =>
         _i109.RegisterRemoteDataSourceImpl(apiManger: gh<_i1057.ApiManager>()));
+    gh.factory<_i428.BookingRemoteDataSource>(
+        () => _i829.GetBookingAdsRemoteDataSourceImpl(gh<_i1057.ApiManager>()));
     gh.factory<_i353.GetProfileDataRepository>(() =>
         _i861.GetProfileDataRepositoryImpl(
             getProfileDataRemoteDataSource:
@@ -96,6 +116,16 @@ extension GetItInjectableX on _i174.GetIt {
             apiManager: gh<_i1057.ApiManager>()));
     gh.factory<_i1069.LoginRemoteDataSource>(() =>
         _i508.LoginRemoteDataSourceImpl(apiManger: gh<_i1057.ApiManager>()));
+    gh.factory<_i397.BookingRepository>(() => _i486.BookingRepositoryImpl(
+        bookingRemoteDataSource: gh<_i428.BookingRemoteDataSource>()));
+    gh.factory<_i124.CancelBookingUseCase>(
+        () => _i124.CancelBookingUseCase(gh<_i397.BookingRepository>()));
+    gh.factory<_i774.GetBookingAdsUseCase>(
+        () => _i774.GetBookingAdsUseCase(gh<_i397.BookingRepository>()));
+    gh.factory<_i369.GetBookingDetailsUseCase>(
+        () => _i369.GetBookingDetailsUseCase(gh<_i397.BookingRepository>()));
+    gh.factory<_i593.PostBookingUseCase>(
+        () => _i593.PostBookingUseCase(gh<_i397.BookingRepository>()));
     gh.factory<_i806.LoginRepository>(() => _i530.LoginRepositoryImpl(
         loginRemoteDataSource: gh<_i1069.LoginRemoteDataSource>()));
     gh.factory<_i299.LoginUseCase>(
@@ -107,6 +137,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i784.GetAllAdsRepositories>(() =>
         _i802.GetAllAdsRepositoriesImpl(
             getAllAdsRemoteDataSource: gh<_i640.GetAllAdsRemoteDataSource>()));
+    gh.factory<_i403.BookingCubit>(() => _i403.BookingCubit(
+          getBookingAdsUseCase: gh<_i774.GetBookingAdsUseCase>(),
+          getBookingDetailsUseCase: gh<_i369.GetBookingDetailsUseCase>(),
+          postBookingUseCase: gh<_i593.PostBookingUseCase>(),
+          cancelBookingUseCase: gh<_i124.CancelBookingUseCase>(),
+        ));
     gh.factory<_i680.GetAdsUseCase>(() => _i680.GetAdsUseCase(
         getAllAdsRepositories: gh<_i784.GetAllAdsRepositories>()));
     gh.factory<_i359.RegisterUseCase>(() => _i359.RegisterUseCase(

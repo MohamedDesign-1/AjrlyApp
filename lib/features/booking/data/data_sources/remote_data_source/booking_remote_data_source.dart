@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import '../../../../core/errors/failures.dart';
-import '../entities/booking_entities.dart';
+import '../../../../../core/errors/failures.dart';
+import '../../../domain/entities/booking_entities.dart';
 
-abstract class BookingRepository {
+abstract class BookingRemoteDataSource {
   Future<Either<Failure, BookingEntities>> getBookingAds();
   Future<Either<Failure, BookingEntities>> getBookingDetails();
   Future<Either<Failure, BookingEntities>> postBooking();
