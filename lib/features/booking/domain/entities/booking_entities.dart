@@ -71,7 +71,11 @@ class BookingAdvertisementEntities {
       this.vehicleCategory, 
       this.numberOfSeats, 
       this.price, 
-      this.location,});
+      this.location,
+      this.mileage,
+      this.fuelType,
+      this.transmissionType,
+  });
 
   String? id;
   String? title;
@@ -80,6 +84,9 @@ class BookingAdvertisementEntities {
   num? numberOfSeats;
   num? price;
   String? location;
+  num? mileage;
+  String? fuelType;
+  String? transmissionType;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -90,6 +97,9 @@ class BookingAdvertisementEntities {
     map['numberOfSeats'] = numberOfSeats;
     map['price'] = price;
     map['location'] = location;
+    map['mileage'] = mileage;
+    map['fuelType'] = fuelType;
+    map['transmissionType'] = transmissionType;
     return map;
   }
 

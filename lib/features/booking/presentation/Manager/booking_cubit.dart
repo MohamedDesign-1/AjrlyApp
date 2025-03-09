@@ -38,14 +38,21 @@ class BookingCubit extends Cubit<BookingState> {
     );
   }
 
-  Future<void> fetchBookingDetails() async {
-    emit(BookingLoading());
-    final result = await getBookingDetailsUseCase();
+  Future<void> fetchBookingDetails(String bookingId) async {
+    emit(BookingDetailsLoading());
+    final result = await getBookingDetailsUseCase(bookingId);
     result.fold(
-          (failure) => emit(BookingError(failure: failure)),
-          (response) => emit(BookingSuccess(bookings: response)),
+          (failure) => emit(BookingDetailsError(failure: failure)),
+          (response) {
+        if (response.data != null && response.data!.isNotEmpty) {
+          emit(BookingDetailsSuccess(bookingDetails: response.data!.first));
+        } else {
+          emit(BookingEmpty());
+        }
+      },
     );
   }
+
 
   Future<void> createBooking() async {
     emit(BookingLoading());

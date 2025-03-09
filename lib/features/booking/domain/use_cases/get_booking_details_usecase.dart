@@ -10,7 +10,7 @@ class GetBookingDetailsUseCase {
 
   GetBookingDetailsUseCase(this.bookingRepository);
 
-  Future<Either<Failure, BookingEntities>> call() {
-    return bookingRepository.getBookingDetails();
+  Future<Either<Failure, BookingEntities>> call(String bookingId) {
+    return bookingRepository.getBookingDetails(bookingId);
   }
 }

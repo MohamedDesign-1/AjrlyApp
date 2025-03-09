@@ -4,7 +4,7 @@ import '../../../domain/entities/booking_entities.dart';
 
 abstract class BookingRemoteDataSource {
   Future<Either<Failure, BookingEntities>> getBookingAds();
-  Future<Either<Failure, BookingEntities>> getBookingDetails();
+  Future<Either<Failure, BookingEntities>> getBookingDetails(String bookingId);
   Future<Either<Failure, BookingEntities>> postBooking();
   Future<Either<Failure, BookingEntities>> cancelBooking();
 }

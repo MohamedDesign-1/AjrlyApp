@@ -112,7 +112,10 @@ final getRouter = GoRouter(
     ),
     GoRoute(
         path: Routes.BookingInfo,
-        builder: (context, state) => BookingInfo()
+        builder: (context, state) => BlocProvider(
+        create: (context) => getIt<BookingCubit>(),
+        child: BookingInfo(),
+)
     ),
     GoRoute(
       path: Routes.myBookingsRoute,

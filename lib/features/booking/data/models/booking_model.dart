@@ -54,7 +54,11 @@ class BookingAdvertisementModel extends BookingAdvertisementEntities{
     super.vehicleCategory,
     super.numberOfSeats,
     super.price,
-    super.location,});
+    super.location,
+    super.fuelType,
+    super.mileage,
+    super.transmissionType,
+  });
 
   BookingAdvertisementModel.fromJson(dynamic json) {
     id = json['_id'];
@@ -64,8 +68,10 @@ class BookingAdvertisementModel extends BookingAdvertisementEntities{
     numberOfSeats = json['numberOfSeats'];
     price = json['price'];
     location = json['location'];
+    fuelType = json['fuelType'];
+    mileage = json['mileage'];
+    transmissionType = json['transmissionType'];
   }
-
 
 }
 
