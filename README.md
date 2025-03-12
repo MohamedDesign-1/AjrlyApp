@@ -1,4 +1,4 @@
-```md
+
 # 🚗 Ajirly – Peer-to-Peer Car Rental App  
 
 **Ajirly** is a **secure, commission-free** peer-to-peer car rental platform that connects car owners with renters directly. Built with **Flutter, Firebase, and REST APIs**, it provides an easy-to-use, transparent, and secure rental experience.  
