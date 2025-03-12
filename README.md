@@ -1,5 +1,3 @@
-Here’s your **GitHub README** in **Markdown (.md) format**:  
-
 ```md
 # 🚗 Ajirly – Peer-to-Peer Car Rental App  
 
@@ -90,23 +88,7 @@ flutter run
 ---
 
 ## 📄 License  
-This project is licensed under the **MIT License**.  
+This project is licensed under the **MMA License**.  
 
 ---
 
-## 📞 Contact & Support  
-For questions or support, reach out to:  
-📧 **your-email@example.com**  
-🌐 **[LinkedIn](#) | [Twitter](#) | [Website](#)**  
-
----
-
-Happy Coding! 🚀💡
-```
-
-### **How to Use This**  
-1. Copy the **Markdown** text above.  
-2. Paste it into a `README.md` file in your **GitHub repository**.  
-3. Replace `"your-username"`, `"your-email@example.com"`, and social media links with your actual information.  
-
-This **README** will provide **a professional and structured overview** of your project for contributors and users. 🚀
