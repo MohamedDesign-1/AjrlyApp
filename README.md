@@ -18,7 +18,7 @@
 
 ## 🚀 Technologies Used  
 - **Frontend:** Flutter & Dart  
-- **Backend:** Firebase (Authentication, Firestore, Cloud Functions)  
+- **Backend:** REST APIs
 - **API Development:** REST APIs  
 - **UI/UX Design:** Figma  
 - **Payment Integration:** Stripe / PayPal (or preferred gateway)  
