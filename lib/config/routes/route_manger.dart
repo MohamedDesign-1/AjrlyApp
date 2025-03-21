@@ -115,7 +115,7 @@ final getRouter = GoRouter(
         builder: (context, state) => BlocProvider(
         create: (context) => getIt<BookingCubit>(),
         child: BookingInfo(),
-)
+      )
     ),
     GoRoute(
       path: Routes.myBookingsRoute,

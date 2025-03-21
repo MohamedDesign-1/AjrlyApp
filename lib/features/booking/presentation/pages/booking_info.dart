@@ -17,6 +17,8 @@ class BookingInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final extra = GoRouterState.of(context).extra as Map<String, dynamic>?;
+    print(extra);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(90.h),
@@ -47,13 +49,13 @@ class BookingInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       BookingInfo_card(
-                        carName: advertisement.title ?? "غير متوفر",
-                        car: advertisement.vehicleType ?? "غير متوفر",
-                        seats: advertisement.numberOfSeats != null
+                        carName: extra?['carName'] ?? "غير متوفر",
+                        car: extra?['carName'] ?? "غير متوفر",
+                        seats: extra?['carName'] != null
                             ? "${advertisement.numberOfSeats} راكب"
                             : "غير متوفر",
-                        gear: advertisement.transmissionType ?? "غير متوفر",
-                        engine: advertisement.fuelType ?? "غير متوفر",
+                        gear: extra?['carName'] ?? "غير متوفر",
+                        engine: extra?['carName'] ?? "غير متوفر",
                       ),
                       SizedBox(height: 16.h),
                       const BookingDetails(),
@@ -72,7 +74,7 @@ class BookingInfo extends StatelessWidget {
                                     color: ColorManager.black, fontSize: 16),
                               ),
                               Text(
-                                "${advertisement.price ?? "غير متوفر"}",
+                                "${extra?['carName'] ?? "غير متوفر"}",
                                 style: getBoldStyle(
                                     color: ColorManager.primary, fontSize: 16),
                               ),

@@ -20,7 +20,10 @@ class BookingInfo_card extends StatelessWidget {
     this.color,
     required this.carName,
     required this.car,
-    this.bookingStatus, required this.seats, required this.gear, required this.engine,
+    this.bookingStatus,
+    required this.seats,
+    required this.gear,
+    required this.engine,
   }) : super(key: key);
 
   @override
@@ -88,7 +91,7 @@ class BookingInfo_card extends StatelessWidget {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(  left: 35),
+                          padding: const EdgeInsets.only(left: 35),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

@@ -27,7 +27,14 @@ class BookingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.go(Routes.BookingInfo);
+        context.go(Routes.BookingInfo,
+            extra: {
+              "price": price,
+              "carName": carName,
+              "car": car,
+              "bookingStatus": bookingStatus,
+            },
+        );
       },
       child: Container(
         padding: EdgeInsets.all(8.w),
