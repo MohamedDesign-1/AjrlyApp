@@ -1,7 +1,7 @@
 import 'package:ajrly/core/components/custom_botton.dart';
 import 'package:ajrly/core/utils/styles_manager.dart';
 import 'package:ajrly/features/booking/presentation/Widgets/booking_details.dart';
-import 'package:ajrly/features/booking/presentation/Widgets/booking_info.dart';
+import 'package:ajrly/features/booking/presentation/Widgets/booking_information_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
