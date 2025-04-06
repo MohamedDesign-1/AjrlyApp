@@ -1,0 +1,2 @@
+D:/Android_Studio_Projects/Ajirly_App/android/app/.cxx/Debug/4g7252a1/x86/CMakeFiles/edit_cache.dir
+D:/Android_Studio_Projects/Ajirly_App/android/app/.cxx/Debug/4g7252a1/x86/CMakeFiles/rebuild_cache.dir
