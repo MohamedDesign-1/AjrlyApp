@@ -68,6 +68,16 @@ abstract class SvgAssets {
   static const String locate = '${svgPath}locate.svg';
   static const String time = '${svgPath}Timetable.svg';
   static const String clock = '${svgPath}Clock.svg';
+  static const String leftarrow = '${svgPath}Left_arrow.svg';
+  static const String warning = '${svgPath}Warning.svg';
+  static const String user3 = '${svgPath}User.svg';
+  static const String rate = '${svgPath}rate.svg';
+  static const String avilable = '${svgPath}avilable.svg';
+  static const String Gasoline = '${svgPath}Gasoline Pump.svg';
+  static const String speedo = '${svgPath}Speedometer.svg';
+  static const String gearboxx = '${svgPath}Gearboxx.svg';
+  static const String doublecheck= '${svgPath}doublecheck.svg';
+
 
 }
 

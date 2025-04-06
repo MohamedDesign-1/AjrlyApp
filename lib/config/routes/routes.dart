@@ -11,6 +11,9 @@ class Routes {
   static const String addNewRentRoute = '/addNewRent';
   static const String Notification = '/NotificationScreen';
   static const String BookingInfo = '/BookingInfo';
+  static const String CarDetails = '/CarDetails';
+  static const String ChechOutScreen = '/ChechOutScreen';
+  static const String CheckOutSucessfulScreen = '/CheckOutSucessfulScreen';
 //client-Routs
   static const String client_profileRoute = '/Client_profile';
 //Admin-Routs

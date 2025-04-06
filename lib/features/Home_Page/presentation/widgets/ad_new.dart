@@ -5,13 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../config/di/di.dart';
+import '../../../../config/routes/routes.dart';
 import '../../../../core/utils/assets_manager.dart';
 import '../../../../core/utils/styles_manager.dart';
 import '../../domain/entities/ads_entity.dart';
 
 class AdNew extends StatelessWidget {
+  const AdNew({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -19,7 +23,8 @@ class AdNew extends StatelessWidget {
       child: BlocConsumer<GetAllAdsCubit, GetAllAdsState>(
         listener: (context, state) {
           if (state is GetAllAdsError) {
-            ToastUtils.showErrorToast(context, 'خطأ', state.failure.errorMessage);
+            ToastUtils.showErrorToast(
+                context, 'خطأ', state.failure.errorMessage);
           }
         },
         builder: (context, state) {
@@ -30,7 +35,7 @@ class AdNew extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 8.h),
               child: ListView.builder(
                 shrinkWrap: true,
-                physics: const BouncingScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 itemCount: state.getAllAds.length,
                 itemBuilder: (context, index) {
                   final ad = state.getAllAds[index];
@@ -38,162 +43,198 @@ class AdNew extends StatelessWidget {
                   if (adData == null || adData.isEmpty) {
                     return SizedBox();
                   }
-                  return Padding(
-                    padding: EdgeInsets.only(bottom: 10.h),
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: ColorManager.lightgray.withOpacity(0.8),
-                        borderRadius: BorderRadius.circular(16.r),
-                      ),
-                      child: Stack(
-                        children: [
-                          SizedBox(
-                            height: 150.h,
-                            width: double.infinity,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0.w),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: 150.h,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: ColorManager.white,
-                                    borderRadius: BorderRadius.circular(16.r),
-                                  ),
-                                  child: AspectRatio(
-                                    aspectRatio: 16 / 9,
-                                    child: Image.network(
-                                      adData.first.images?.isNotEmpty == true
-                                          ? adData.first.images!.first
-                                          : 'default_image_url',
-                                      fit: BoxFit.cover,
+                  return InkWell(
+                    onTap: () {
+                      context.go(Routes.CarDetails, extra: {
+                        'numpassengers': adData.first.numberOfSeats,
+                        'fuel': adData.first.fuelType,
+                        'transmission': adData.first.transmissionType,
+                        'maxspeed': adData.first.mileage,
+                        'boldtitle': adData.first.title,
+                        'description': adData.first.description,
+                        'carownername': adData.first.location,
+                        'price': adData.first.price,
+                        'carphoto': adData.first.images?.isNotEmpty == true
+                            ? adData.first.images!.first
+                            : 'default_image_url',
+                      });
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 10.h),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: ColorManager.lightgray.withOpacity(0.8),
+                          borderRadius: BorderRadius.circular(16.r),
+                        ),
+                        child: Stack(
+                          children: [
+                            SizedBox(
+                              height: 150.h,
+                              width: double.infinity,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0.w),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 150.h,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: ColorManager.white,
+                                      borderRadius: BorderRadius.circular(16.r),
+                                    ),
+                                    child: AspectRatio(
+                                      aspectRatio: 16 / 9,
+                                      child: Image.network(
+                                        adData.first.images?.isNotEmpty == true
+                                            ? adData.first.images!.first
+                                            : 'default_image_url',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  height: 100.h,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.r),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8.0.w),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "يوم/ ",
-                                                  style: getRegularStyle(
-                                                      color: ColorManager.black,
-                                                      fontSize: 12.sp),
-                                                ),
-                                                Text(
-                                                  adData.first.price?.toString() ?? "",
-                                                  style: getBoldStyle(
-                                                      color: ColorManager.primary,
-                                                      fontSize: 16.sp),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.end,
-                                              children: [
-                                                DecoratedBox(
-                                                  decoration: BoxDecoration(
-                                                    color: ColorManager.white,
-                                                    borderRadius: BorderRadius.circular(16.r),
+                                  Container(
+                                    height: 100.h,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16.r),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0.w),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "يوم/ ",
+                                                    style: getRegularStyle(
+                                                        color:
+                                                            ColorManager.black,
+                                                        fontSize: 12.sp),
                                                   ),
-                                                  child: Container(
-                                                    height: 22.h,
-                                                    width: 50.w,
-                                                    child: Text(
-                                                      adData.first.vehicleCategory ?? '',
-                                                      style: getBoldStyle(
-                                                          color: ColorManager.primary,
-                                                          fontSize: 12.sp),
-                                                      textAlign: TextAlign.center,
+                                                  Text(
+                                                    adData.first.price
+                                                            ?.toString() ??
+                                                        "",
+                                                    style: getBoldStyle(
+                                                        color: ColorManager
+                                                            .primary,
+                                                        fontSize: 16.sp),
+                                                  ),
+                                                ],
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  DecoratedBox(
+                                                    decoration: BoxDecoration(
+                                                      color: ColorManager.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.r),
+                                                    ),
+                                                    child: SizedBox(
+                                                      height: 22.h,
+                                                      width: 50.w,
+                                                      child: Text(
+                                                        adData.first
+                                                                .vehicleCategory ??
+                                                            '',
+                                                        style: getBoldStyle(
+                                                            color: ColorManager
+                                                                .primary,
+                                                            fontSize: 12.sp),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                SizedBox(height: 4.h),
-                                                Text(
-                                                  adData.first.title ?? '',
-                                                  style: getBoldStyle(
-                                                      color: ColorManager.black,
-                                                      fontSize: 16.sp),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: 8.h),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  adData.first.transmissionType ?? '',
-                                                  style: getSemiBoldStyle(
-                                                      color: ColorManager.black,
-                                                      fontSize: 12.sp),
-                                                ),
-                                                SizedBox(width: 4.w),
-                                                SvgPicture.asset(
-                                                  SvgAssets.gearBox,
-                                                  height: 16.h,
-                                                  color: ColorManager.primary,
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  adData.first.fuelType ?? '',
-                                                  style: getSemiBoldStyle(
-                                                      color: ColorManager.black,
-                                                      fontSize: 12.sp),
-                                                ),
-                                                SizedBox(width: 4.w),
-                                                SvgPicture.asset(
-                                                  SvgAssets.engine,
-                                                  height: 16.h,
-                                                  color: ColorManager.primary,
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "راكب ${adData.first.numberOfSeats}",
-                                                  style: getSemiBoldStyle(
-                                                      color: ColorManager.black,
-                                                      fontSize: 12.sp),
-                                                ),
-                                                SizedBox(width: 4.w),
-                                                SvgPicture.asset(
-                                                  SvgAssets.userfav,
-                                                  height: 16.h,
-                                                  color: ColorManager.primary,
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                                  SizedBox(height: 4.h),
+                                                  Text(
+                                                    adData.first.title ?? '',
+                                                    style: getBoldStyle(
+                                                        color:
+                                                            ColorManager.black,
+                                                        fontSize: 16.sp),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8.h),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    adData.first
+                                                            .transmissionType ??
+                                                        '',
+                                                    style: getSemiBoldStyle(
+                                                        color:
+                                                            ColorManager.black,
+                                                        fontSize: 12.sp),
+                                                  ),
+                                                  SizedBox(width: 4.w),
+                                                  SvgPicture.asset(
+                                                    SvgAssets.gearBox,
+                                                    height: 16.h,
+                                                    color: ColorManager.primary,
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    adData.first.fuelType ?? '',
+                                                    style: getSemiBoldStyle(
+                                                        color:
+                                                            ColorManager.black,
+                                                        fontSize: 12.sp),
+                                                  ),
+                                                  SizedBox(width: 4.w),
+                                                  SvgPicture.asset(
+                                                    SvgAssets.engine,
+                                                    height: 16.h,
+                                                    color: ColorManager.primary,
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    "راكب ${adData.first.numberOfSeats}",
+                                                    style: getSemiBoldStyle(
+                                                        color:
+                                                            ColorManager.black,
+                                                        fontSize: 12.sp),
+                                                  ),
+                                                  SizedBox(width: 4.w),
+                                                  SvgPicture.asset(
+                                                    SvgAssets.userfav,
+                                                    height: 16.h,
+                                                    color: ColorManager.primary,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   );

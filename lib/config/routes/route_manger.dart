@@ -17,6 +17,9 @@ import '../../features/auth/login_screen/presentation/manager/login_cubit.dart';
 import '../../features/auth/onboarding_screen/presentation/pages/onboarding_screen.dart';
 import '../../features/auth/register_screen/presentation/manager/register_cubit.dart';
 import '../../features/auth/register_screen/presentation/pages/regsiter_screen.dart';
+import '../../features/car_details_and_checkout_screen/car_details_screen/pages/car_details.dart';
+import '../../features/car_details_and_checkout_screen/check_out_screen/pages/chech_out_screen.dart';
+import '../../features/car_details_and_checkout_screen/check_out_sucessful_screen/pages/check_out_sucessful_screen.dart';
 import '../../features/mainLayout/presentation/manager/main_layout_cubit.dart';
 import '../../features/mainLayout/presentation/pages/main_layout.dart';
 import '../../features/notification_screen/pages/notification.dart';
@@ -112,10 +115,7 @@ final getRouter = GoRouter(
     ),
     GoRoute(
         path: Routes.BookingInfo,
-        builder: (context, state) => BlocProvider(
-        create: (context) => getIt<BookingCubit>(),
-        child: BookingInfo(),
-      )
+        builder: (context, state) => BookingInfo()
     ),
     GoRoute(
       path: Routes.myBookingsRoute,
@@ -123,6 +123,31 @@ final getRouter = GoRouter(
         create: (context) => getIt<BookingCubit>(),
         child: BookingScreen(),
       ),
+    ),
+    GoRoute(
+      path: Routes.CarDetails,
+      builder: (context, state) {
+        final carData = state.extra as Map<String, dynamic>;
+        return CarDetails(
+          numpassengers: carData['numpassengers'],
+          fuel: carData['fuel'],
+          transmission: carData['transmission'],
+          maxspeed: carData['maxspeed'],
+          boldtitle: carData['boldtitle'],
+          description: carData['description'],
+          carownername: carData['carownername'],
+          price: carData['price'],
+          carphoto: carData['carphoto'],
+        );
+      },
+    ),
+    GoRoute(
+        path: Routes.ChechOutScreen,
+        builder: (context, state) => ChechOutScreen()
+    ),
+    GoRoute(
+        path: Routes.CheckOutSucessfulScreen,
+        builder: (context, state) => CheckOutSucessfulScreen()
     ),
   ],
 );
