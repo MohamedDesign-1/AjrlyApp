@@ -51,7 +51,7 @@ class BookingDetails extends StatelessWidget {
         ),
         DecoratedBox(
           decoration: BoxDecoration(
-            color: ColorManager.lightGrey,
+            color: ColorManager.iceWhite,
             borderRadius: BorderRadius.circular(8.r),
           ),
           child: SizedBox(
@@ -97,7 +97,7 @@ class Info extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: ColorManager.lightGrey,
+        color: ColorManager.iceWhite,
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: SizedBox(

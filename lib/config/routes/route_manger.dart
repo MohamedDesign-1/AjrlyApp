@@ -86,37 +86,30 @@ final getRouter = GoRouter(
     ),
     GoRoute(
         path: Routes.Notification,
-        builder: (context, state) => NotificationScreen()
-    ),
+        builder: (context, state) => NotificationScreen()),
 
     //todo: Admin Routes
     GoRoute(
         path: Routes.Admin_MainLayoutRoute,
         builder: (context, state) => BlocProvider(
-        create: (context) => getIt<AdminMainLayOutCubit>(),
-        lazy: false,
-        child: AdminMainLayOut(),
-      )
-    ),
+              create: (context) => getIt<AdminMainLayOutCubit>(),
+              lazy: false,
+              child: AdminMainLayOut(),
+            )),
 
     GoRoute(
         path: Routes.Admin_HomePage,
-        builder: (context, state) => AdminHomePage()
-    ),
+        builder: (context, state) => AdminHomePage()),
 
     GoRoute(
         path: Routes.Ads_ControlRoute,
-        builder: (context, state) => AdminAdsControl()
-    ),
+        builder: (context, state) => AdminAdsControl()),
 
     GoRoute(
         path: Routes.Users_ControlRoute,
-        builder: (context, state) => AdminUserControl()
-    ),
+        builder: (context, state) => AdminUserControl()),
     GoRoute(
-        path: Routes.BookingInfo,
-        builder: (context, state) => BookingInfo()
-    ),
+        path: Routes.BookingInfo, builder: (context, state) => BookingInfo()),
     GoRoute(
       path: Routes.myBookingsRoute,
       builder: (context, state) => BlocProvider(
@@ -138,16 +131,29 @@ final getRouter = GoRouter(
           carownername: carData['carownername'],
           price: carData['price'],
           carphoto: carData['carphoto'],
+          category: carData['category'],
+
         );
       },
     ),
+
     GoRoute(
-        path: Routes.ChechOutScreen,
-        builder: (context, state) => ChechOutScreen()
+      path: Routes.ChechOutScreen,
+      builder: (context, state) {
+        final carData = state.extra as Map<String, dynamic>;
+        return ChechOutScreen(
+          carname: carData['carname'],
+          noseats: carData['noseats'].toString(),
+          gasoline: carData['gasoline'],
+          gearbox: carData['gearbox'],
+          price: carData['price'].toString(),
+          category: carData['category'],
+        );
+      },
     ),
+
     GoRoute(
         path: Routes.CheckOutSucessfulScreen,
-        builder: (context, state) => CheckOutSucessfulScreen()
-    ),
+        builder: (context, state) => CheckOutSucessfulScreen()),
   ],
 );

@@ -15,11 +15,11 @@ class ItemInfofav extends StatelessWidget {
     return Column(
       children: [
         SizedBox(child: icon,
-        height: 20.h,
-        width: 20.w,) ,
+        height: 28.h,
+        width: 28.w,) ,
         Text(
           title,
-          style: getBoldStyle(color: ColorManager.black, fontSize: 8.sp),
+          style: getBoldStyle(color: ColorManager.black, fontSize: 12.sp),
         ),
       ],
     );

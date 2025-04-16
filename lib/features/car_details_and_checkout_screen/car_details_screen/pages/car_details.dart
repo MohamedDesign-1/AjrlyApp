@@ -20,6 +20,8 @@ class CarDetails extends StatelessWidget {
   final String description;
   final String carownername;
   final int price;
+  final String category;
+
 
   const CarDetails({
     super.key,
@@ -31,7 +33,7 @@ class CarDetails extends StatelessWidget {
     required this.boldtitle,
     required this.description,
     required this.carownername,
-    required this.price,
+    required this.price, required this.category,
   });
 
   @override
@@ -196,7 +198,15 @@ class CarDetails extends StatelessWidget {
                   const Spacer(),
                   CustomButton(
                     onTap: () {
-                      context.go(Routes.ChechOutScreen);               },
+                      context.go(Routes.ChechOutScreen, extra: {
+                        'carname': boldtitle,
+                        'noseats': numpassengers,
+                        'gasoline': fuel,
+                        'gearbox': transmission,
+                        'price': price,
+                        'category': category,
+                      });
+                    },
                     title: 'احجز دلوقتي',
                     color: ColorManager.primary,
                     outlineColor: ColorManager.primary,

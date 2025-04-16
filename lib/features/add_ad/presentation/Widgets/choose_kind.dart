@@ -49,7 +49,7 @@ class _ChooseKindState extends State<ChooseKind> {
               children: [
                 Text(
                   widget.titile1,
-                  style: getBoldStyle(color: ColorManager.primary, fontSize: 14.sp),
+                  style: getBoldStyle(color: ColorManager.primary, fontSize: 13.sp),
                 ),
                 Radio<String>(
                   value: widget.value1,

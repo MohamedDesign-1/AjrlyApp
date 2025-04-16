@@ -77,6 +77,9 @@ abstract class SvgAssets {
   static const String speedo = '${svgPath}Speedometer.svg';
   static const String gearboxx = '${svgPath}Gearboxx.svg';
   static const String doublecheck= '${svgPath}doublecheck.svg';
+  static const String applepay= '${svgPath}applepay.svg';
+  static const String visa= '${svgPath}visa.svg';
+
 
 
 }

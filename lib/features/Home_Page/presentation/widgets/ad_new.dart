@@ -57,6 +57,7 @@ class AdNew extends StatelessWidget {
                         'carphoto': adData.first.images?.isNotEmpty == true
                             ? adData.first.images!.first
                             : 'default_image_url',
+                        'category' : adData.first.vehicleType
                       });
                     },
                     child: Padding(

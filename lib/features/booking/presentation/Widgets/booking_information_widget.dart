@@ -32,7 +32,7 @@ class BookingInfo_card extends StatelessWidget {
       children: [
         DecoratedBox(
           decoration: BoxDecoration(
-            color: ColorManager.lightGrey,
+            color: ColorManager.iceWhite,
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Padding(
@@ -43,7 +43,7 @@ class BookingInfo_card extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 4.w,
+                spacing: 10.w,
                 children: [
                   Expanded(
                     child: Column(
@@ -84,14 +84,14 @@ class BookingInfo_card extends StatelessWidget {
                                   carName,
                                   style: getBoldStyle(
                                       color: ColorManager.black,
-                                      fontSize: 16.sp),
+                                      fontSize: 11.sp),
                                 ),
                               ],
                             ),
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 35),
+                          padding: const EdgeInsets.fromLTRB(20,0,5,0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
