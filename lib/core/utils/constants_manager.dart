@@ -1,7 +1,7 @@
 
 class AppConstants {
   static const String languagePath = 'lib/config/language';
-  static const String baseUrl = 'https://ajirly.mernagency.com';
+  static const String baseUrl = 'https://ajirly.merncore.com';
 
   //todo: all text here
   static const String notFoundPage = 'UnKnown Page';
